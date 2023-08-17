@@ -10,7 +10,7 @@ const projects: Project[] = [
     {
         name: "Portfolio Website",
         description: "The code to this website! Built with React and TypeScript.",
-        githubLink: "https://github.com/taisnguyen/word-fall-online"
+        githubLink: "https://github.com/taisnguyen/taisnguyen.github.io"
     },
     {
         name: "Princeton University Site Builder",
