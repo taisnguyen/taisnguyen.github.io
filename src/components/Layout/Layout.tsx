@@ -13,16 +13,16 @@ const Layout = ({ children }: LayoutProps) => {
                 <a className="navContainerItem" id="0" href="/" draggable={false}>
                     about me
                 </a>
-                <a className="navContainerItem" id="1" href="/work" draggable={false}>
+                <a className="navContainerItem" id="1" href="/#/work" draggable={false}>
                     work experience
                 </a>
-                <a className="navContainerItem" id="2" href="/projects" draggable={false}>
+                <a className="navContainerItem" id="2" href="/#/projects" draggable={false}>
                     projects
                 </a>
-                <a className="navContainerItem" id="3" href="/resume" draggable={false}>
+                <a className="navContainerItem" id="3" href="/#/resume" draggable={false}>
                     resume
                 </a>
-                <a className="navContainerItem" id="4" href="/contact" draggable={false}>
+                <a className="navContainerItem" id="4" href="/#/contact" draggable={false}>
                     contact
                 </a>
             </nav>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, RouteObject } from "react-router-dom";
 import LoadingView from "../components/LoadingView/LoadingView";
 
 const About = React.lazy(() => import("../pages/About"));
@@ -8,45 +8,58 @@ const Projects = React.lazy(() => import("../pages/Projects"));
 const Work = React.lazy(() => import("../pages/Work"));
 const Contact = React.lazy(() => import("../pages/Contact"));
 
-interface RouteSchema {
-    path: string;
-    element: React.ReactElement;
-}
-
-const routes: RouteSchema[] = [
+const routes: RouteObject[] = [
     {
         path: "/",
-        element: <About />
+        element: (
+            <React.Suspense fallback={<LoadingView />}>
+                <About />
+            </React.Suspense>
+        )
     },
     {
         path: "/resume",
-        element: <Resume />
+        element: (
+            <React.Suspense fallback={<LoadingView />}>
+                <Resume />
+            </React.Suspense>
+        )
     },
     {
         path: "/projects",
-        element: <Projects />
+        element: (
+            <React.Suspense fallback={<LoadingView />}>
+                <Projects />
+            </React.Suspense>
+        )
     },
     {
         path: "/work",
-        element: <Work />
+        element: (
+            <React.Suspense fallback={<LoadingView />}>
+                <Work />
+            </React.Suspense>
+        )
     },
     {
         path: "/contact",
-        element: <Contact />
+        element: (
+            <React.Suspense fallback={<LoadingView />}>
+                <Contact />
+            </React.Suspense>
+        )
     }
 ];
 
 const Router = () => {
     return (
-        <Routes>
-            {routes.map((route: RouteSchema) => (
-                <Route
-                    key={route.path}
-                    path={route.path}
-                    element={<React.Suspense fallback={<LoadingView />}>{route.element}</React.Suspense>}
-                />
-            ))}
-        </Routes>
+        <HashRouter>
+            <Routes>
+                {routes.map((route) => (
+                    <Route key={route.path} path={route.path} element={route.element} />
+                ))}
+            </Routes>
+        </HashRouter>
     );
 };
 
