@@ -1,0 +1,33 @@
+.container {
+    margin-bottom: 1em;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+
+    & > span {
+        height: 8px;
+        width: 8em;
+        transform: translateY(-1em);
+    }
+}
+
+.linkLogoContainer {
+    display: flex;
+    gap: 0.24em;
+}
+
+.linkLogo {
+    margin-top: 0.36em;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    overflow: visible;
+
+    & :hover {
+        transform: translate(-6.5px, -6.5px) scale(1.04);
+        transition: 0.2s;
+    }
+}

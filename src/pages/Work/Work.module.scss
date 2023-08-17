@@ -1,0 +1,32 @@
+.mainContainer {
+    width: 38vw;
+}
+
+.introductionContainer {
+    display: flex;
+
+    & > p {
+        font-size: 42px;
+        line-height: 45px;
+    }
+
+    & > div {
+        user-select: none;
+        margin-left: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8.2em;
+        animation: wiggle 1s ease-in-out;
+        animation-delay: 0.2s;
+    }
+}
+
+@keyframes wiggle {
+    50% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

@@ -1,0 +1,30 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.navContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1em;
+
+    width: 38vw;
+    padding: 3em 0 4em 0;
+
+    & > a {
+        text-decoration: none;
+        color: #1f1d1d;
+        font-size: 18px;
+        font-weight: bold;
+        user-select: none;
+        padding: 0.24em;
+
+        &:hover {
+            background-color: #bfe0ff;
+        }
+    }
+}
