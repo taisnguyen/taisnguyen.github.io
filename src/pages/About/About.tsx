@@ -97,7 +97,22 @@ const About = () => {
                 </div>
                 <p>
                     I am a <b>fullstack developer</b> who has had industry experience building scalable, performant web
-                    applications. I am currently studying <b>engineering computer science</b> at Princeton University.
+                    applications. I am currently studying <b>engineering computer science</b> at Princeton University,
+                    with minors in <b>mathematics</b> and <b>physics</b>.
+                    <br />
+                    <br />I have had experience with full-stack development across various industries (F&B, education,
+                    etc.) and have built solutions that have served over 1000s of users and establishments. My work
+                    experience in designing and implementing <b>client-facing SaaS systems</b> has given me a unique
+                    perspective on what makes clean, user-friendly, and powerful interfaces
+                    <br /> <br />
+                    Outside of industry, I enjoy developing for a smaller community on my university campus. As a
+                    software engineer involved in various student organizations at Princeton University, I actively
+                    participate in creating <b>impactful solutions</b> tailored to the unique needs of my campus
+                    community.
+                    <br /> <br />
+                    Other interests of mine include pure mathematics, theoretical computer science, and space flight!
+                    <br /> <br />
+                    <div style={{ display: "flex", justifyContent: "center", fontSize: "1.6em" }}>🚀</div>
                 </p>
             </div>
         </div>
