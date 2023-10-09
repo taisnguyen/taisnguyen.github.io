@@ -8,15 +8,22 @@ import { ReactComponent as JoyConTopIcon } from "../../assets/joy-con-top-icon.s
 
 const projects: Project[] = [
     {
-        name: "Portfolio Website",
-        description: "The code to this website! Built with React and TypeScript.",
-        githubLink: "https://github.com/taisnguyen/taisnguyen.github.io"
+        name: "NJTree Tracker App",
+        description:
+            "A dynamic full-stack app for a non-profit, integrating an interactive map to track and showcase their tree planting efforts. Users can easily explore and visualize the planted trees, fostering transparency and engagement with the organization’s environmental initiatives.",
+        imageSrc: "https://i.imgur.com/uP1qgDd.png"
     },
     {
         name: "Princeton University Site Builder",
         description:
             "A platform to build branded websites for Princeton University departments and organizations. I lead a subteam of developers and UI/UX researchers to create Princeton-branded components for the platform's website builder.",
-        externalLink: "https://sitebuilder.princeton.edu/"
+        externalLink: "https://sitebuilder.princeton.edu/",
+        imageSrc: "https://i.imgur.com/WtbOP9Q.png"
+    },
+    {
+        name: "Portfolio Website",
+        description: "The code to this website! Built with React and TypeScript.",
+        githubLink: "https://github.com/taisnguyen/taisnguyen.github.io"
     },
     {
         name: "Word Fall Online",

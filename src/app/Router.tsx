@@ -6,6 +6,7 @@ const About = React.lazy(() => import("../pages/About"));
 const Resume = React.lazy(() => import("../pages/Resume"));
 const Projects = React.lazy(() => import("../pages/Projects"));
 const Work = React.lazy(() => import("../pages/Work"));
+const University = React.lazy(() => import("../pages/University"));
 const Contact = React.lazy(() => import("../pages/Contact"));
 
 const routes: RouteObject[] = [
@@ -38,6 +39,14 @@ const routes: RouteObject[] = [
         element: (
             <React.Suspense fallback={<LoadingView />}>
                 <Work />
+            </React.Suspense>
+        )
+    },
+    {
+        path: "/university",
+        element: (
+            <React.Suspense fallback={<LoadingView />}>
+                <University />
             </React.Suspense>
         )
     },

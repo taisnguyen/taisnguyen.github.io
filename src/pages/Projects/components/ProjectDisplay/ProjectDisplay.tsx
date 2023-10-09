@@ -9,6 +9,7 @@ export interface Project {
     description: string;
     githubLink?: string;
     externalLink?: string;
+    imageSrc?: string;
 }
 
 interface ProjectDisplayProps {
@@ -17,7 +18,7 @@ interface ProjectDisplayProps {
 }
 
 const ProjectDisplay = ({ project, stripeColor }: ProjectDisplayProps) => {
-    const { name, description, githubLink, externalLink } = project;
+    const { name, description, githubLink, externalLink, imageSrc } = project;
 
     return (
         <div className={styles.container}>
@@ -30,6 +31,11 @@ const ProjectDisplay = ({ project, stripeColor }: ProjectDisplayProps) => {
                 />
             </div>
             {description}
+            {imageSrc && (
+                <div className={styles.imageContainer}>
+                    <img src={imageSrc} />
+                </div>
+            )}
             <div className={styles.linkLogoContainer}>
                 {githubLink && (
                     <GithubIcon className={styles.linkLogo} onClick={() => window.open(githubLink, "_blank")} />

@@ -1,6 +1,6 @@
 import React from "react";
 
-import ExperienceYear, { ExperienceTimeline } from "./components/ExperienceYear";
+import ExperienceYear, { ExperienceTimeline } from "../../components/ExperienceYear";
 import styles from "./Work.module.scss";
 
 import { ReactComponent as WorkBagIcon } from "../../assets/work-bag-icon.svg";
@@ -13,21 +13,21 @@ const experiences: ExperienceTimeline = {
             period: "Summer 2023",
             description:
                 "Worked on the restaurant chain management system (F&B SaaS) to build new key features that allow over 1000 restaurants across 4 countries to manage their business operations."
-        },
-        {
-            name: "iOS/Android Developer",
-            company: "GetPupil Inc.",
-            period: "March 2023 — Present",
-            description:
-                "Pupil is a startup that serves FGLI and other marginalized students and provides a platform for mentor/mentees of similar backgrounds to interact. These past months, I have been responsible for working on the product for the release of the MVP that will serve over 1200 registered users."
-        },
-        {
-            name: "Software Engineer",
-            company: "The Daily Princetonian Publishing Co.",
-            period: "September 2022 — Present",
-            description:
-                "The Daily Princetonian is the largest independent student newspaper of Princeton University. I am responsible for building and maintaining web apps that serve over 2400 daily users."
         }
+        // {
+        //     name: "iOS/Android Developer",
+        //     company: "GetPupil Inc.",
+        //     period: "March 2023 — Present",
+        //     description:
+        //         "Pupil is a startup that serves FGLI and other marginalized students and provides a platform for mentor/mentees of similar backgrounds to interact. These past months, I have been responsible for working on the product for the release of the MVP that will serve over 1200 registered users."
+        // },
+        // {
+        //     name: "Software Engineer",
+        //     company: "The Daily Princetonian Publishing Co.",
+        //     period: "September 2022 — Present",
+        //     description:
+        //         "The Daily Princetonian is the largest independent student newspaper of Princeton University. I am responsible for building and maintaining web apps that serve over 2400 daily users."
+        // }
     ],
     "2022": [
         {

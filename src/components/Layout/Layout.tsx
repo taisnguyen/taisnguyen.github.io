@@ -16,6 +16,9 @@ const Layout = ({ children }: LayoutProps) => {
                 <a className="navContainerItem" id="1" href="/#/work" draggable={false}>
                     work experience
                 </a>
+                <a className="navContainerItem" id="1" href="/#/university" draggable={false}>
+                    university activities
+                </a>
                 <a className="navContainerItem" id="2" href="/#/projects" draggable={false}>
                     projects
                 </a>

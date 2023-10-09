@@ -31,3 +31,11 @@
         transition: 0.2s;
     }
 }
+
+.imageContainer {
+    display: flex;
+    margin-top: 8px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 0.2em;
+}
