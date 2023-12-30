@@ -45,7 +45,10 @@
     flex-direction: column;
     gap: 1em;
     margin-bottom: 0.4em;
-    padding-bottom: 4em;
+
+    @media screen and (max-width: 992px) {
+        padding-bottom: 4em;
+    }
 }
 
 .innerDescription {
@@ -71,7 +74,5 @@
 }
 
 .experienceContainer {
-    @media screen and (max-width: 992px) {
-        padding-bottom: 4em;
-    }
+    padding-bottom: 4em;
 }
