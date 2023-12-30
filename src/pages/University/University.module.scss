@@ -1,32 +1,80 @@
-.mainContainer {
-    width: 38vw;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100vh;
+    width: 100vw;
+    border-radius: 4px;
+
+    @media screen and (max-width: 992px) {
+        padding-bottom: 3em;
+    }
 }
 
-.introductionContainer {
+.introduction {
     display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1em;
+
+    height: 200px;
+    width: 58rem;
+
+    font-family: "Satoshi-Variable", sans-serif;
+    color: #4a4a4a;
+
+    & > h1 {
+        line-height: 1.02em;
+        user-select: none;
+    }
+
+    @media screen and (max-width: 992px) {
+        width: 90%;
+    }
+}
+
+.links {
+    display: flex;
+    gap: 0.6em;
+    margin-bottom: 0.6em;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 0.4em;
+
+    @media screen and (max-width: 992px) {
+        padding-bottom: 4em;
+    }
+}
+
+.innerDescription {
+    display: flex;
+    gap: 1em;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    color: #5f5f5f;
 
     & > p {
-        font-size: 42px;
-        line-height: 45px;
+        width: 50%;
     }
 
-    & > div {
-        user-select: none;
-        margin-left: auto;
-        display: flex;
-        justify-content: center;
+    @media screen and (max-width: 992px) {
+        flex-direction: column;
         align-items: center;
-        font-size: 8.2em;
-        animation: wiggle 1s ease-in-out;
-        animation-delay: 0.2s;
+
+        & > p {
+            width: 100%;
+        }
     }
 }
 
-@keyframes wiggle {
-    50% {
-        transform: rotate(5deg);
-    }
-    100% {
-        transform: rotate(0deg);
+.experienceContainer {
+    @media screen and (max-width: 992px) {
+        padding-bottom: 4em;
     }
 }
