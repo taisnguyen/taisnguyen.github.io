@@ -46,10 +46,7 @@
     flex-direction: column;
     padding-right: 1.4rem;
     gap: 1em;
-
-    @media screen and (max-width: 992px) {
-        padding-bottom: 4em;
-    }
+    padding-bottom: 4em;
 }
 
 .innerDescription {
