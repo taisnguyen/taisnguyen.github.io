@@ -12,10 +12,11 @@ import TypingText from "../../components/TypingText";
 const experiences: ExperienceTimeline = {
     "2024": [
         {
-            name: "Incoming Software Engineer Intern",
+            name: "Software Engineer Intern",
             company: "Microsoft",
             period: "Summer 2024",
-            description: "To be added."
+            description:
+                "Extended filtering capabilities for high-demand pub/sub service processing 1 billion requests daily, exposing contract changes for partners to define KQL queries against incoming payload data. Achieved and maintained sub-5ms latencies under 5x-10x production-scale testing and benchmarking."
         }
     ],
     "2023": [
@@ -54,7 +55,7 @@ const experiences: ExperienceTimeline = {
     ]
 };
 
-const TypingTextOptions = ["msft", "fusion systems", "quantcap llc", "bcps", "mods"];
+const TypingTextOptions = ["msft", "fusion systems", "quantcap llc", "bcps", "mods", "cmu"];
 
 const Work = () => {
     return (
@@ -66,13 +67,30 @@ const Work = () => {
                 <div className={styles.description}>
                     <div className={styles.innerDescription}>
                         <p>
-                            <span style={{ fontWeight: 600 }}>(industry) </span>im a software engineer with industry
-                            experience building scalable, performant web applications. below are the positions ive held.
+                            <span style={{ fontWeight: 500 }}>(industry) </span>
+                            <span
+                                style={{
+                                    fontFamily: "Satoshi-Variable",
+                                    fontWeight: 400,
+                                    color: "4A4A4A"
+                                }}
+                            >
+                                im a software engineer with industry experience building scalable and performant
+                                systems. below are the positions ive held.
+                            </span>
                         </p>
                         <p>
-                            <span style={{ fontWeight: 600 }}>(my experiences) </span> a lot of my work experience is in
-                            fullstack development, with an emphasis on saas development. though i am always exploring
-                            new areas!
+                            <span style={{ fontWeight: 500 }}>(my experiences) </span>
+                            <span
+                                style={{
+                                    fontFamily: "Satoshi-Variable",
+                                    fontWeight: 400,
+                                    color: "4A4A4A"
+                                }}
+                            >
+                                a lot of my work experience is in fullstack software engineering, where i have built and
+                                maintained production systems.
+                            </span>
                         </p>
                     </div>
                 </div>

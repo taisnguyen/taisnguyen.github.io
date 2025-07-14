@@ -5,6 +5,7 @@ import LoadingView from "../components/LoadingView/LoadingView";
 const About = React.lazy(() => import("../pages/About"));
 const Work = React.lazy(() => import("../pages/Work"));
 const University = React.lazy(() => import("../pages/University"));
+const Research = React.lazy(() => import("../pages/Research"));
 
 const routes: RouteObject[] = [
     {
@@ -32,6 +33,14 @@ const routes: RouteObject[] = [
         element: (
             <React.Suspense fallback={<LoadingView />}>
                 <University />
+            </React.Suspense>
+        )
+    },
+    {
+        path: "/research",
+        element: (
+            <React.Suspense fallback={<LoadingView />}>
+                <Research />
             </React.Suspense>
         )
     }

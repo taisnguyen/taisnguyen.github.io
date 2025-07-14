@@ -10,8 +10,6 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-    const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-
     return (
         <>
             <div className={styles.container}>
@@ -23,17 +21,51 @@ const Layout = ({ children }: LayoutProps) => {
                     </div>
                     <div className={styles.nav}>
                         <a className="navContainerItem" id="0" href="/#/" draggable={false}>
-                            <p>/about_me</p>
+                            <p
+                                style={{
+                                    fontFamily: "Satoshi-Variable",
+                                    fontWeight: 500
+                                }}
+                            >
+                                /about_me
+                            </p>
                         </a>
-                        <a className="navContainerItem" id="1" href="/#/work_experience" draggable={false}>
-                            <p>/work_experience</p>
+                        <a className="navContainerItem" id="1" href="/#/research" draggable={false}>
+                            <p
+                                style={{
+                                    fontFamily: "Satoshi-Variable",
+                                    fontWeight: 500
+                                }}
+                            >
+                                /research
+                            </p>
                         </a>
-                        <a className="navContainerItem" id="1" href="/#/university_activities" draggable={false}>
-                            <p>/university_activities</p>
+                        <a className="navContainerItem" id="2" href="/#/work_experience" draggable={false}>
+                            <p
+                                style={{
+                                    fontFamily: "Satoshi-Variable",
+                                    fontWeight: 500
+                                }}
+                            >
+                                /work_experience
+                            </p>
+                        </a>
+                        <a className="navContainerItem" id="3" href="/#/university_activities" draggable={false}>
+                            <p
+                                style={{
+                                    fontFamily: "Satoshi-Variable",
+                                    fontWeight: 500
+                                }}
+                            >
+                                /university_activities
+                            </p>
                         </a>
                     </div>
                     <div className={styles.contact}>
-                        <Bubble color="#4a4a4a" onClick={() => setIsContactModalOpen(true)}>
+                        <Bubble
+                            color="#4a4a4a"
+                            onClick={() => window.open("https://www.linkedin.com/in/tai-sanh-nguyen", "_blank")}
+                        >
                             contact me!
                         </Bubble>
                     </div>
@@ -41,38 +73,9 @@ const Layout = ({ children }: LayoutProps) => {
                 <span className={styles.divider}></span>
                 {children}
                 <div className={styles.footer}>
-                    © 2023 <span style={{ fontFamily: "Satoshi-Bold" }}>TAI SANH NGUYEN</span>
+                    © {new Date().getFullYear()} <span style={{ fontFamily: "Satoshi-Bold" }}>TAI SANH NGUYEN</span>
                 </div>
             </div>
-
-            {/* Contact Modal. */}
-            <Modal open={isContactModalOpen} onClose={() => setIsContactModalOpen(false)}>
-                {/* <ContactTitle>Contact Form</ContactTitle> */}
-                <ContactHeader>Hey! I'm glad you're reaching out. Let's connect.</ContactHeader>
-                <ContactSubheader>
-                    You can find me on{" "}
-                    <a
-                        href="https://www.linkedin.com/in/tai-sanh-nguyen/"
-                        target="_blank"
-                        style={{ color: "#0077b5", textDecoration: "underline" }}
-                    >
-                        LinkedIn
-                    </a>{" "}
-                    and{" "}
-                    <a
-                        href="https://github.com/taisnguyen"
-                        target="_blank"
-                        style={{ color: "#bd2c00", textDecoration: "underline" }}
-                    >
-                        GitHub
-                    </a>
-                    , or you could{" "}
-                    <a href="mailto:tai.sanh.ng@gmail.com" style={{ color: "#f2a60c", textDecoration: "underline" }}>
-                        shoot me an email
-                    </a>
-                    !
-                </ContactSubheader>
-            </Modal>
         </>
     );
 };

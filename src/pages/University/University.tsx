@@ -5,18 +5,27 @@ import ExperienceYear, { ExperienceTimeline } from "../../components/ExperienceY
 import TypingText from "../../components/TypingText";
 
 const experiences: ExperienceTimeline = {
+    "2024": [
+        {
+            name: "ICPC Greater New York Regional Competitor",
+            company: "Intercollegiate Programming Contest (ICPC)",
+            period: "Summer 2024",
+            description:
+                "Qualified and competed in the ICPC Greater New York Regional, representing Princeton University."
+        }
+    ],
     "2023": [
         {
             name: "Software Engineer",
             company: "Hack4Impact",
-            period: "Fall 2023 – Present",
+            period: "Fall 2023 – Spring 2025",
             description:
                 "Hack4Impact connects student software developers with non-profits and other socially responsible businesses to develop powerful new tools for social change. I am currently working on a project to help NJTree non-profit manage their tree planting and logging operations."
         },
         {
             name: "Spaceport America Cup Competitor",
             company: "Princeton Rocketry Club",
-            period: "Fall 2023 – Present",
+            period: "Fall 2023 – Spring 2024",
             description:
                 "Designing and implementing dashboard application to communicate with and display avionics and during-flight data to on-ground team. Working to launch fully team-built rocket to up to 30,000 feet, deploying drone payload, and recovering both."
         },
@@ -32,7 +41,7 @@ const experiences: ExperienceTimeline = {
         {
             name: "Lead Software Engineer",
             company: "The Daily Princetonian Publishing Co.",
-            period: "Fall 2022 – Present",
+            period: "Fall 2022 – Fall 2024",
             description:
                 "The Daily Princetonian is the largest independent student newspaper of Princeton University. I am responsible for building and maintaining web apps that serve over 2400 daily users."
         },
@@ -62,19 +71,35 @@ const University = () => {
         <div className={styles.container}>
             <div className={styles.introduction}>
                 <h1>
-                    university activities @ <br /> <TypingText color="#f0cb81" textOptions={TypingTextOptions} />
+                    university activities @ <br /> <TypingText color="#89cfa9" textOptions={TypingTextOptions} />
                 </h1>
                 <div className={styles.description}>
                     <div className={styles.innerDescription}>
                         <p>
-                            <span style={{ fontWeight: 600 }}>(academics) </span>im as much a software engineer as i am
-                            a student. i enjoy studying pure math, theoretical computer science, and computer systems
-                            design at princeton.
+                            <span style={{ fontWeight: 500 }}>(academics) </span>
+                            <span
+                                style={{
+                                    fontFamily: "Satoshi-Variable",
+                                    fontWeight: 400,
+                                    color: "4A4A4A"
+                                }}
+                            >
+                                im as much a software engineer as i am a student. i actively research in theoretical
+                                computer science and software engineering at princeton.
+                            </span>
                         </p>
                         <p>
-                            <span style={{ fontWeight: 600 }}>(my activities) </span> outside of industry, i enjoy
-                            developing for a smaller community on campus. below are the student organizations im
-                            involved in.
+                            <span style={{ fontWeight: 500 }}>(my activities) </span>
+                            <span
+                                style={{
+                                    fontFamily: "Satoshi-Variable",
+                                    fontWeight: 400,
+                                    color: "4A4A4A"
+                                }}
+                            >
+                                outside of industry, i enjoy developing for a smaller community on campus. below are the
+                                student organizations im involved in.
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -87,9 +112,9 @@ const University = () => {
                                 year={year}
                                 experiences={experiences[year]}
                                 stripeColor={[
-                                    230 + (parseInt(year) - 2021) * 8,
-                                    220 + (parseInt(year) - 2021) * 12,
-                                    140 + (parseInt(year) - 2021) * 20
+                                    137 + (parseInt(year) - 2021) * 8,
+                                    207 + (parseInt(year) - 2021) * 12,
+                                    169 + (parseInt(year) - 2021) * 20
                                 ]}
                             />
                         ))}

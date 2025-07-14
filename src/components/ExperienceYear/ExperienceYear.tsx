@@ -7,7 +7,7 @@ export interface Experience {
     name: string;
     company: string;
     period: string;
-    description: string;
+    description: string | React.ReactNode;
 }
 
 export interface ExperienceTimeline {

@@ -6,7 +6,7 @@
 .text {
     &::after {
         content: "_";
-        animation: blink 0.7s infinite;
+        animation: blink 1.7s infinite;
     }
 }
 

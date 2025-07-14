@@ -44,7 +44,7 @@ function playTypingAnimation(text: string, textContainerId: string): number {
         }, lastDelay);
     }
 
-    lastDelay += 1500 + Math.random() * 1800;
+    lastDelay += 6500 + Math.random() * 1800;
     for (let i = 0; i < text.length; i++) {
         lastDelay = Math.random() * 100 + 80 + lastDelay;
         setTimeout(() => {
