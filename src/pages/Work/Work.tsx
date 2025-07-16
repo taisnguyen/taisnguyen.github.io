@@ -12,6 +12,56 @@ import TypingText from "../../components/TypingText";
 const experiences: ExperienceTimeline = {
     "2024": [
         {
+            name: "Undergraduate Research Assistant",
+            company: "Princeton Cognition in Collectives Lab",
+            period: "Summer 2024 – Present",
+            description: (
+                <>
+                    Building infrastructure for online dynamic interactive networks for research in collective
+                    psychological processes in large-scale social networks. Collaborated with researchers to study
+                    social dynamics and behavior using the platform.
+                    <br />
+                    <br />
+                    Advised by Dr. Alin Coman (
+                    <a
+                        href="https://psychology.princeton.edu/people/alin-coman"
+                        target="_blank"
+                        style={{ color: "#81a6f0", fontWeight: 500, textDecoration: "underline" }}
+                    >
+                        Website
+                    </a>
+                    ) and Ph.D. Candidate Ari Dyckovsky (
+                    <a
+                        href="https://www.aridyckovsky.com/"
+                        target="_blank"
+                        style={{ color: "#81a6f0", fontWeight: 500, textDecoration: "underline" }}
+                    >
+                        Website
+                    </a>
+                    ).
+                    <br />
+                    <br />
+                    <span
+                        style={{
+                            border: "1.6px solid #cff0f9",
+                            borderRadius: "0.4rem",
+                            backgroundColor: "#cff0f9",
+                            padding: "2px",
+                            paddingLeft: "8px",
+                            paddingRight: "8px",
+                            color: "#4A4A4A"
+                        }}
+                    >
+                        You can check out our progress here:{" "}
+                        <a href="https://www.odin.systems/" target="_blank">
+                            https://www.odin.systems/
+                        </a>
+                        .
+                    </span>
+                </>
+            )
+        },
+        {
             name: "Software Engineer Intern",
             company: "Microsoft",
             period: "Summer 2024",

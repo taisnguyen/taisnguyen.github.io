@@ -30,17 +30,7 @@ const Layout = ({ children }: LayoutProps) => {
                                 /about_me
                             </p>
                         </a>
-                        <a className="navContainerItem" id="1" href="/#/research" draggable={false}>
-                            <p
-                                style={{
-                                    fontFamily: "Satoshi-Variable",
-                                    fontWeight: 500
-                                }}
-                            >
-                                /research
-                            </p>
-                        </a>
-                        <a className="navContainerItem" id="2" href="/#/work_experience" draggable={false}>
+                        <a className="navContainerItem" id="1" href="/#/work_experience" draggable={false}>
                             <p
                                 style={{
                                     fontFamily: "Satoshi-Variable",
@@ -50,7 +40,27 @@ const Layout = ({ children }: LayoutProps) => {
                                 /work_experience
                             </p>
                         </a>
-                        <a className="navContainerItem" id="3" href="/#/university_activities" draggable={false}>
+                        <a className="navContainerItem" id="2" href="/#/research" draggable={false}>
+                            <p
+                                style={{
+                                    fontFamily: "Satoshi-Variable",
+                                    fontWeight: 500
+                                }}
+                            >
+                                /research
+                            </p>
+                        </a>
+                        <a className="navContainerItem" id="3" href="/#/teaching" draggable={false}>
+                            <p
+                                style={{
+                                    fontFamily: "Satoshi-Variable",
+                                    fontWeight: 500
+                                }}
+                            >
+                                /teaching
+                            </p>
+                        </a>
+                        <a className="navContainerItem" id="4" href="/#/university_activities" draggable={false}>
                             <p
                                 style={{
                                     fontFamily: "Satoshi-Variable",

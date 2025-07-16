@@ -19,7 +19,7 @@
     gap: 1em;
 
     height: 200px;
-    width: 50rem;
+    width: 42rem;
 
     font-family: "Satoshi-Variable", sans-serif;
     color: #4a4a4a;
@@ -59,9 +59,9 @@
     font-weight: 400;
     color: #5f5f5f;
 
-    & > p {
-        width: 50%;
-    }
+    // & > p {
+    // width: 50%;
+    // }
 
     @media screen and (max-width: 992px) {
         flex-direction: column;

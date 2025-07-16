@@ -41,6 +41,7 @@ const ExperienceYear = ({ year, experiences, stripeColor }: ExperienceYearProps)
                             <b style={{ marginLeft: "auto" }}>{period}</b>
                         </ExperienceHeader>
                         {description}
+                        <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
                     </Experience>
                 </>
             ))}
@@ -49,7 +50,7 @@ const ExperienceYear = ({ year, experiences, stripeColor }: ExperienceYearProps)
 };
 
 const ExperienceYearWrapper = styled.div`
-    margin-bottom: 1.4rem;
+    margin-top: 1.4rem;
 `;
 
 const Year = styled.div`
