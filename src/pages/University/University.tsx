@@ -16,11 +16,11 @@ const experiences: ExperienceTimeline = {
     ],
     "2023": [
         {
-            name: "Software Engineer",
+            name: "Lead Software Engineer",
             company: "Hack4Impact",
             period: "Fall 2023 – Spring 2025",
             description:
-                "Hack4Impact connects student software developers with non-profits and other socially responsible businesses to develop powerful new tools for social change. I am currently working on a project to help NJTree non-profit manage their tree planting and logging operations."
+                "Hack4Impact connects student software developers with non-profits and other socially responsible businesses to develop powerful new tools for social change. I lead a project enabling NJTree non-profit to manage their tree planting and logging operations."
         },
         {
             name: "Spaceport America Cup Competitor",
