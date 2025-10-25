@@ -4,6 +4,7 @@
     grid-template-rows: 68px auto auto;
 
     width: 100vw;
+    min-width: 420px;
     height: 100vh;
     overflow-x: hidden;
     font-family: "Satoshi-Variable", sans-serif;
@@ -25,6 +26,13 @@
     width: 100%;
     grid-column-start: 2;
     display: flex;
+    min-width: 340px;
+
+    @media screen and (max-width: 992px) {
+        // justify-content: center;
+        grid-column-start: 1;
+        margin-left: 2rem;
+    }
 }
 
 .nav {
@@ -34,6 +42,8 @@
     flex-wrap: wrap;
     gap: 2em;
     row-gap: 0;
+    // min-width: 100px;
+
     padding: 1em 0 1em 0;
 
     & > a {
@@ -49,8 +59,13 @@
 
     @media screen and (max-width: 992px) {
         gap: 1em;
+        row-gap: 0;
+        width: 100vw;
+        // padding-right: 8em;
         & > a > p {
-            font-size: clamp(0.8rem, 2vw, 1.2rem);
+            width: 100%;
+            // margin-right: 2rem;
+            // font-size: clamp(0.8rem, 2vw, 1.2rem);
         }
     }
 }
