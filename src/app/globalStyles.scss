@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    // Scrollbar styles.
+    & ::-webkit-scrollbar {
+        width: 16px;
+    }
+    & ::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        border: 4px solid transparent;
+        background-clip: content-box !important;
+        background: #a7a7a7;
+    }
+
+    overflow-x: hidden;
+
+    // TODO: theme
+    // background-color: #1a1a1a;
+}
+
+// * { TODO: theme
+// color: #e2e2dd !important;
+// }
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+// Typography system.
+h1 {
+    font-size: 2.986rem;
+    padding: 0;
+    margin: 0;
+}
+h2 {
+    font-size: 2.488rem;
+    padding: 0;
+    margin: 0;
+}
+h3 {
+    font-size: 2.074rem;
+    padding: 0;
+    margin: 0;
+}
+h4 {
+    font-size: 1.728rem;
+    padding: 0;
+    margin: 0;
+}
+h5 {
+    font-size: 1.44rem;
+    padding: 0;
+    margin: 0;
+}
+h6 {
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+}
+p {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+@media screen and (max-width: 992px) {
+    h1 {
+        font-size: clamp(4rem, 10vw, 8rem);
+    }
+
+    h6 {
+        font-size: 3.5vw;
+    }
+
+    p {
+        font-size: clamp(1.24rem, 2.2vw, 4rem);
+    }
+}
+
+*::selection {
+    background-color: #bfe0ff;
+}
+
+.katex {
+    font-size: 1.08em;
+}
