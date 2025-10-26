@@ -147,6 +147,7 @@ const Layout = ({ children }: LayoutProps) => {
                     © {new Date().getFullYear()} <span style={{ fontFamily: "Satoshi-Bold" }}>TAI SANH NGUYEN</span>
                 </div>
                 <button
+                    className={styles.pause}
                     onClick={() => {
                         GLOBAL_PAUSE_ASCII_ANIMATIONS.value = !GLOBAL_PAUSE_ASCII_ANIMATIONS.value;
                         setAsciiAnimationPaused(GLOBAL_PAUSE_ASCII_ANIMATIONS.value);
