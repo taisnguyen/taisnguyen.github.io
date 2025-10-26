@@ -112,6 +112,9 @@
         // font-size: 14px;
     }
 
+    @media screen and (max-width: 992px) {
+        display: none;
+    }
     // animation: floatBobble 4s ease-in-out infinite;
 }
 
