@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.4d9cc6e5.css",
-    "main.js": "/static/js/main.a254e608.js",
+    "main.css": "/static/css/main.6dcbe30d.css",
+    "main.js": "/static/js/main.93eb2c54.js",
     "static/media/Satoshi-Variable.ttf": "/static/media/Satoshi-Variable.536fda9b164542087fc7.ttf",
     "static/media/GeneralSans-Variable.ttf": "/static/media/GeneralSans-Variable.d7facbbe2ed9ae4aae49.ttf",
     "static/media/Satoshi-Medium.ttf": "/static/media/Satoshi-Medium.759562088ba19068aef8.ttf",
@@ -99,11 +99,11 @@
     "static/media/KaTeX_Size3-Regular.woff": "/static/media/KaTeX_Size3-Regular.7947224e8a9914fa332b.woff",
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/index.html",
-    "main.4d9cc6e5.css.map": "/static/css/main.4d9cc6e5.css.map",
-    "main.a254e608.js.map": "/static/js/main.a254e608.js.map"
+    "main.6dcbe30d.css.map": "/static/css/main.6dcbe30d.css.map",
+    "main.93eb2c54.js.map": "/static/js/main.93eb2c54.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d9cc6e5.css",
-    "static/js/main.a254e608.js"
+    "static/css/main.6dcbe30d.css",
+    "static/js/main.93eb2c54.js"
   ]
 }
