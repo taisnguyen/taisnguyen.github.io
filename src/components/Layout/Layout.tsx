@@ -8,6 +8,12 @@ import AsciiGizmo from "../../gizmos/ascii/AsciiGizmo";
 
 export const GLOBAL_PAUSE_ASCII_ANIMATIONS = { value: false };
 
+window.onload = () => {
+    (document.getElementsByClassName(styles.container)[0] as HTMLElement).style.opacity = "1";
+    // setTimeout(() => {
+    // }, 100);
+};
+
 interface LayoutProps {
     children: JSX.Element;
 }
