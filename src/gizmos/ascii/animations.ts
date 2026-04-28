@@ -38,7 +38,7 @@ interface AsciiAnimationManagerContext {
 class AsciiAnimationManager {
     private static FREQUENCY = 62;
     private static OPACITY_DECREASE_RATE = 0.005;
-    private static ANIMATION_DURATION = 500;
+    private static ANIMATION_DURATION = 800;
     private static FADE_IN_BEGIN = 0.5;
 
     private _asciiGizmoDOM: HTMLElement;
@@ -639,8 +639,8 @@ function spawnFish(O: Ocean, ensureVisible: boolean) {
             ? -irand(Math.random, O.w / 8)
             : O.w + irand(Math.random, O.w / 8)
         : dir === 1
-        ? -irand(Math.random, O.w / 4)
-        : O.w + irand(Math.random, O.w / 4);
+          ? -irand(Math.random, O.w / 4)
+          : O.w + irand(Math.random, O.w / 4);
     O.fish.push({
         id: irand(Math.random, 1 << 30),
         x,

@@ -40,17 +40,18 @@ const Work = () => {
                     <div className={styles.experienceContainer}>
                         <Experience>
                             <ExperienceHeader>
-                                incoming swe&nbsp;@&nbsp;imc trading
+                                <p style={{ fontWeight: 500 }}>incoming software engineer</p>&nbsp;@&nbsp;imc trading
                                 <p style={{ marginLeft: "auto" }}>august 2026</p>
                             </ExperienceHeader>
-                            low-latency execution platform
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            low-latency execution platform.
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                undergraduate research assistant&nbsp;@&nbsp;princeton cognition in collectives lab
-                                <p style={{ marginLeft: "auto" }}>summer 2024 - present</p>
+                                <p style={{ fontWeight: 500 }}>undergraduate research assistant</p>
+                                &nbsp;@&nbsp;princeton cognition in collectives lab
+                                <p style={{ marginLeft: "auto" }}>summer 2024 - nov. 2025</p>
                             </ExperienceHeader>
                             building infrastructure for online dynamic interactive networks for research in collective
                             psychological processes in large-scale social networks. collaborated with researchers to
@@ -60,7 +61,8 @@ const Work = () => {
                                 href="https://psychology.princeton.edu/people/alin-coman"
                                 style={{
                                     fontWeight: 300,
-                                    textDecoration: "underline dotted"
+                                    textDecoration: "underline dotted",
+                                    textDecorationThickness: 1
                                 }}
                             >
                                 website
@@ -70,7 +72,8 @@ const Work = () => {
                                 href="https://www.aridyckovsky.com/"
                                 style={{
                                     fontWeight: 300,
-                                    textDecoration: "underline dotted"
+                                    textDecoration: "underline dotted",
+                                    textDecorationThickness: 1
                                 }}
                             >
                                 website
@@ -81,62 +84,66 @@ const Work = () => {
                                 href="https://www.odin.systems/"
                                 style={{
                                     fontWeight: 300,
-                                    textDecoration: "underline dotted"
+                                    textDecoration: "underline dotted",
+                                    textDecorationThickness: 1
                                 }}
                             >
                                 https://www.odin.systems/
                             </a>
-                            .{/* <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} /> */}
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            .{/* <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} /> */}
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                software engineer intern&nbsp;@&nbsp;microsoft
+                                <p style={{ fontWeight: 500 }}>software engineer intern</p>&nbsp;@&nbsp;microsoft
                                 <p style={{ marginLeft: "auto" }}>summer 2024</p>
                             </ExperienceHeader>
                             extended filtering capabilities for high-demand pub/sub service processing 1 billion
                             requests daily, exposing contract changes for partners to define kql queries against
                             incoming payload data. achieved and maintained sub-5ms latencies under 5x-10x
                             production-scale testing and benchmarking.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                software engineer intern&nbsp;@&nbsp;fusion systems group
+                                <p style={{ fontWeight: 500 }}>software engineer intern</p>&nbsp;@&nbsp;fusion systems
+                                group
                                 <p style={{ marginLeft: "auto" }}>summer 2023</p>
                             </ExperienceHeader>
                             worked on the restaurant chain management system (f&b saas) to build new key features that
                             allow over 1000 restaurants across 4 countries to manage their business operations.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                machine learning intern&nbsp;@&nbsp;quantcap llc
+                                <p style={{ fontWeight: 500 }}>machine learning intern</p>&nbsp;@&nbsp;quantcap llc
                                 <p style={{ marginLeft: "auto" }}>winter 2023</p>
                             </ExperienceHeader>
                             responsible for the start-to-finish analysis, design, and implementation of profitable
                             betting strategies, including data collection, data cleaning, featur, model training, and
                             backtesting.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                software engineer intern&nbsp;@&nbsp;broward county public schools
+                                <p style={{ fontWeight: 500 }}>software engineer intern</p>&nbsp;@&nbsp;broward county
+                                public schools
                                 <p style={{ marginLeft: "auto" }}>summer 2021</p>
                             </ExperienceHeader>
                             responsible for the extension and management of module-based administrative system (saas)
                             during pivotal transition from paper to digital, with technologies including asp.net, c#,
                             mssql/t-sql, and js.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                engineering intern&nbsp;@&nbsp;museum of discovery and science
+                                <p style={{ fontWeight: 500 }}>engineering intern</p>&nbsp;@&nbsp;museum of discovery
+                                and science
                                 <p style={{ marginLeft: "auto" }}>october 2020 - august 2021</p>
                             </ExperienceHeader>
                             responsible for designing a project to be implemented in the museum displays, including an

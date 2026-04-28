@@ -29,6 +29,7 @@ const Layout = ({ children }: LayoutProps) => {
         if (path.startsWith("research")) return "research";
         if (path.startsWith("teaching")) return "teaching";
         if (path.startsWith("university_activities")) return "university";
+        if (path.startsWith("photos")) return "photos";
         return "home";
     };
 
@@ -125,6 +126,23 @@ const Layout = ({ children }: LayoutProps) => {
                             university activities
                         </p>
                     </a>
+                    <a
+                        className="navContainerItem"
+                        id="4"
+                        onClick={() => setCurrentPage("photos")}
+                        href="/#/photos"
+                        draggable={false}
+                    >
+                        <p
+                            style={{
+                                fontWeight: 400,
+                                color: "#4a4a4a",
+                                borderBottom: currentPage === "photos" ? "2px dotted #4a4a4a" : "none"
+                            }}
+                        >
+                            photos
+                        </p>
+                    </a>
                 </div>
                 {/* <div className={styles.contact}>
                         <Bubble
@@ -139,9 +157,9 @@ const Layout = ({ children }: LayoutProps) => {
                 <AsciiGizmo id="left-ascii-gizmo" asciiAnimationsPreset={1} />
             </div>
             {children}
-            <div className={styles.rightSideContainer}>
+            {/* <div className={styles.rightSideContainer}>
                 <AsciiGizmo id="right-ascii-gizmo" asciiAnimationsPreset={2} />
-            </div>
+            </div> */}
             <div className={styles.footer}>
                 <div>
                     © {new Date().getFullYear()} <span style={{ fontFamily: "Satoshi-Bold" }}>TAI SANH NGUYEN</span>
@@ -160,7 +178,9 @@ const Layout = ({ children }: LayoutProps) => {
                         background: "#fff"
                     }}
                 >
-                    {asciiAnimationPaused ? "resume animations" : "pause animations"}
+                    {/* <p style={{ fontSize: "14px", fontFamily: "Roboto", color: "#4a4a4a", fontWeight: 400 }}>
+                        {asciiAnimationPaused ? "resume animations" : "pause animations"}
+                    </p> */}
                 </button>
             </div>
         </div>

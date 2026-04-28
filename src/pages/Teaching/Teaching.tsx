@@ -40,43 +40,47 @@ const Teaching = () => {
                     <div className={styles.experienceContainer}>
                         <Experience>
                             <ExperienceHeader>
-                                undergraduate course grader&nbsp;@&nbsp;princeton computer science department
+                                <p style={{ fontWeight: 500 }}>undergraduate course grader</p>&nbsp;@&nbsp;princeton
+                                computer science department
                                 <p style={{ marginLeft: "auto" }}>spring 2025</p>
                             </ExperienceHeader>
                             graded and critiqued rigorous, proof-based assignments and exams for COS445: Algorithmic
                             Game Theory.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                undergraduate teaching assistant&nbsp;@&nbsp;princeton computer science department
+                                <p style={{ fontWeight: 500 }}>undergraduate teaching assistant</p>
+                                &nbsp;@&nbsp;princeton computer science department
                                 <p style={{ marginLeft: "auto" }}>fall 2024</p>
                             </ExperienceHeader>
                             held office hours for COS324: Introduction to Machine Learning, assisting students with
                             course material and programming assignments during lab sessions. additionally, assisted in
                             grading assignments and providing feedback to students.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                undergraduate teaching assistant&nbsp;@&nbsp;princeton computer science department
+                                <p style={{ fontWeight: 500 }}>undergraduate teaching assistant</p>
+                                &nbsp;@&nbsp;princeton computer science department
                                 <p style={{ marginLeft: "auto" }}>spring 2024</p>
                             </ExperienceHeader>
                             held office hours for COS217: Introduction to Programming Systems, assisting students with
                             course material and programming assignments during lab sessions.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                undergraduate teaching assistant&nbsp;@&nbsp;princeton computer science department
+                                <p style={{ fontWeight: 500 }}>undergraduate teaching assistant</p>
+                                &nbsp;@&nbsp;princeton computer science department
                                 <p style={{ marginLeft: "auto" }}>fall 2023</p>
                             </ExperienceHeader>
                             held office hours for COS226: Data Structures and Algorithms, assisting students with course
                             material and programming assignments during lab sessions.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
 
                         <div style={{ marginBottom: "4rem" }} />

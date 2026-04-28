@@ -12,6 +12,7 @@ import Work from "../pages/Work";
 import University from "../pages/University";
 import Research from "../pages/Research";
 import Teaching from "../pages/Teaching";
+import Photos from "../pages/Photos";
 
 const routes: RouteObject[] = [
     {
@@ -55,6 +56,14 @@ const routes: RouteObject[] = [
         element: (
             <React.Suspense fallback={<LoadingView />}>
                 <Teaching />
+            </React.Suspense>
+        )
+    },
+    {
+        path: "/photos",
+        element: (
+            <React.Suspense fallback={<LoadingView />}>
+                <Photos />
             </React.Suspense>
         )
     }

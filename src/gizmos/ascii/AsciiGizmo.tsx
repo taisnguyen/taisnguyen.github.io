@@ -13,10 +13,10 @@ import {
 import { AsciiAnimation } from "./animations";
 
 const ASCII_ANIMATIONS_1: AsciiAnimation[] = [
-    NumberAsciiAnimation,
     GravityAsciiAnimation,
-    TextScrollAsciiAnimation,
     SandAsciiAnimation
+    // NumberAsciiAnimation
+    // TextScrollAsciiAnimation,
 ];
 ASCII_ANIMATIONS_1.sort(() => Math.random() - 0.5);
 ASCII_ANIMATIONS_1.unshift(SinAsciiAnimation);

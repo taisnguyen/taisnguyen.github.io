@@ -40,80 +40,85 @@ const University = () => {
                     <div className={styles.experienceContainer}>
                         <Experience>
                             <ExperienceHeader>
-                                icpc greater new york regional competitor&nbsp;@&nbsp;icpc
+                                <p style={{ fontWeight: 500 }}>icpc greater new york regional competitor</p>
+                                &nbsp;@&nbsp;icpc
                                 <p style={{ marginLeft: "auto" }}>fall 2024 - spring 2025</p>
                             </ExperienceHeader>
                             qualified and competed in the international collegiate programming competition (icpc)
                             greater new york regional, representing princeton university, after having qualified through
                             the local competition held on campus.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                lead software engineer&nbsp;@&nbsp;hack4impact
+                                <p style={{ fontWeight: 500 }}>lead software engineer</p>&nbsp;@&nbsp;hack4impact
                                 <p style={{ marginLeft: "auto" }}>fall 2023 - spring 2025</p>
                             </ExperienceHeader>
                             hack4impact connects student software developers with non-profits and other socially
                             responsible businesses to develop powerful new tools for social change. i led a project
                             enabling NJTree non-profit to manage their tree planting and logging operations.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                lead software engineer&nbsp;@&nbsp;the daily princetonian
+                                <p style={{ fontWeight: 500 }}>lead software engineer</p>&nbsp;@&nbsp;the daily
+                                princetonian
                                 <p style={{ marginLeft: "auto" }}>fall 2022 - fall 2024</p>
                             </ExperienceHeader>
                             the daily princetonian is the largest independent student newspaper of princeton university.
                             i am responsible for building and maintaining web apps that serve over 2400 daily users.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                start-up ios/android developer&nbsp;@&nbsp;getpupil inc.
+                                <p style={{ fontWeight: 500 }}>start-up ios/android developer</p>&nbsp;@&nbsp;getpupil
+                                inc.
                                 <p style={{ marginLeft: "auto" }}>summer 2023 - fall 2023</p>
                             </ExperienceHeader>
                             pupil is a startup that serves fgli and other marginalized students and provides a platform
                             for mentor/mentees of similar backgrounds to interact. i was responsible for working on the
                             product for the release of the mvp that will serve over 1200 registered users.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                spaceport america cup competitor&nbsp;@&nbsp;princeton rocketry club
+                                <p style={{ fontWeight: 500 }}>spaceport america cup competitor</p>
+                                &nbsp;@&nbsp;princeton rocketry club
                                 <p style={{ marginLeft: "auto" }}>fall 2023 - spring 2024</p>
                             </ExperienceHeader>
                             designing and implementing dashboard application to communicate with and display avionics
                             and during-flight data to on-ground team. working to launch fully team-built rocket to up to
                             30,000 feet, deploying drone payload, and recovering both.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                director & project manager&nbsp;@&nbsp;resinde
+                                <p style={{ fontWeight: 500 }}>director & project manager</p>&nbsp;@&nbsp;resinde
                                 <p style={{ marginLeft: "auto" }}>spring 2023 - fall 2023</p>
                             </ExperienceHeader>
                             resinde is princeton university's campus community for design & product thinking. i led a
                             subteam for the official princeton university's Site Builder (PSB), where i am responsible
                             for managing a team of over 7 developers and ui/ux researchers.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                national & states champion programming&nbsp;@&nbsp;bpa
+                                <p style={{ fontWeight: 500 }}>national & states champion programming</p>
+                                &nbsp;@&nbsp;bpa
                                 <p style={{ marginLeft: "auto" }}>fall 2021 - spring 2022</p>
                             </ExperienceHeader>
                             participated in programming competitions on the regional, states, and national levels,
                             hosted by the business professionals of america (bpa). won 1st place nationals (US) C++
                             competition & 7th place nationals (US) python competition & 1st place states (FL) C++
                             competition & 1st place states (FL) python competition.
-                            <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "20px 0" }} />
+                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
 
