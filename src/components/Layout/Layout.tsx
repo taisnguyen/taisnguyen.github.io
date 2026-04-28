@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import styles from "./Layout.module.scss";
 
@@ -8,11 +8,11 @@ import AsciiGizmo from "../../gizmos/ascii/AsciiGizmo";
 
 export const GLOBAL_PAUSE_ASCII_ANIMATIONS = { value: false };
 
-window.onload = () => {
-    (document.getElementsByClassName(styles.container)[0] as HTMLElement).style.opacity = "1";
-    // setTimeout(() => {
-    // }, 100);
-};
+// window.onload = () => {
+//     (document.getElementsByClassName(styles.container)[0] as HTMLElement).style.opacity = "1";
+//     // setTimeout(() => {
+//     // }, 100);
+// };
 
 interface LayoutProps {
     children: JSX.Element;
@@ -20,6 +20,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
     const [asciiAnimationPaused, setAsciiAnimationPaused] = useState<boolean>(false);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     // read url to get correct initial page
     const getPageFromHash = (hash: string) => {
@@ -37,8 +38,18 @@ const Layout = ({ children }: LayoutProps) => {
         getPageFromHash(typeof window !== "undefined" ? window.location.hash : "")
     );
 
+    useEffect(() => {
+        if (containerRef.current) {
+            const timeout = setTimeout(() => {
+                if (containerRef.current) containerRef.current.style.opacity = "1";
+            }, 50);
+
+            return () => clearTimeout(timeout);
+        }
+    }, []);
+
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={containerRef}>
             <div className={styles.header}>
                 <div className={styles.nav}>
                     <a
