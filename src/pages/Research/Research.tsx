@@ -82,7 +82,7 @@ const Research = () => {
                             >
                                 https://sites.google.com/view/oac2402559/home
                             </a>
-                            ).
+                            .
                             <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         <Experience>
