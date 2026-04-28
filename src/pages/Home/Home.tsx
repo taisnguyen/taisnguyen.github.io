@@ -99,6 +99,7 @@ const Home = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 slay the spire
                             </a>
@@ -110,6 +111,7 @@ const Home = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 balatro
                             </a>
@@ -121,6 +123,7 @@ const Home = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 dead cells
                             </a>
@@ -132,6 +135,7 @@ const Home = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 risk of rain
                             </a>

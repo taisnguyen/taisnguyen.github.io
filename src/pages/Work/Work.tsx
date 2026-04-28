@@ -64,6 +64,7 @@ const Work = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
@@ -75,6 +76,7 @@ const Work = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
@@ -87,6 +89,7 @@ const Work = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 https://www.odin.systems/
                             </a>

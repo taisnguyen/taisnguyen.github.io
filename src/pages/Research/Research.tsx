@@ -53,6 +53,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
@@ -64,6 +65,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
@@ -87,6 +89,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
@@ -98,6 +101,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
@@ -109,6 +113,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
@@ -120,6 +125,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 https://github.com/nanofuzz/nanofuzz/
                             </a>
@@ -144,6 +150,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
@@ -155,6 +162,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
@@ -167,6 +175,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 https://www.odin.systems/
                             </a>
@@ -192,6 +201,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
@@ -203,6 +213,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
@@ -214,6 +225,7 @@ const Research = () => {
                                     textDecoration: "underline dotted",
                                     textDecorationThickness: 1
                                 }}
+                                target="_blank"
                             >
                                 website
                             </a>
