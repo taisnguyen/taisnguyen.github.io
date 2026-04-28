@@ -69,6 +69,7 @@ const Research = () => {
                             >
                                 website
                             </a>
+                            ).
                             <br />
                             you can check out the project here:{" "}
                             <a
