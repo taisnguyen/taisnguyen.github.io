@@ -69,6 +69,19 @@ const Research = () => {
                             >
                                 website
                             </a>
+                            <br />
+                            you can check out the project here:{" "}
+                            <a
+                                href="https://sites.google.com/view/oac2402559/home"
+                                style={{
+                                    fontWeight: 300,
+                                    textDecoration: "underline dotted",
+                                    textDecorationThickness: 1
+                                }}
+                                target="_blank"
+                            >
+                                https://sites.google.com/view/oac2402559/home
+                            </a>
                             ).
                             <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
