@@ -79,7 +79,7 @@ const Photos = () => {
             aspectRatio: "5981/4116",
             caption: "tsim sha tsui, hong kong, 2025"
         },
-        { id: 7, src: "https://i.imgur.com/GycxWD6.jpeg", aspectRatio: "4160/6240", caption: "saigon, vietnam, 2025" }
+        { id: 7, src: "https://i.imgur.com/XmJCoSH.jpeg", aspectRatio: "4160/6240", caption: "saigon, vietnam, 2025" }
     ];
 
     return (
