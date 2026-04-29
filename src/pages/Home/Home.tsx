@@ -32,7 +32,7 @@ const Home = () => {
             <div className={styles.container}>
                 <div className={styles.introduction}>
                     <h3 style={{ fontFamily: "Roboto", fontWeight: 400 }}>tai sanh nguyen</h3>
-                    <p style={{ marginBottom: "2em" }}>incoming swe @ imc</p>
+                    <p style={{ marginBottom: "2em" }}>dGFpLnNhbmgubmdAZ21haWwuY29t</p>
                     <div className={styles.content}>
                         <div style={{ marginBottom: "2em" }}>
                             <p
