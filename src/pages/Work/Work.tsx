@@ -49,56 +49,6 @@ const Work = () => {
                         {/*  */}
                         <Experience>
                             <ExperienceHeader>
-                                <p style={{ fontWeight: 500 }}>undergraduate research assistant</p>
-                                &nbsp;@&nbsp;princeton cognition in collectives lab
-                                <p style={{ marginLeft: "auto" }}>summer 2024 - nov. 2025</p>
-                            </ExperienceHeader>
-                            building infrastructure for online dynamic interactive networks for research in collective
-                            psychological processes in large-scale social networks. collaborated with researchers to
-                            study social dynamics and behavior using the platform. <br /> <br />
-                            advised by Dr. Alin Coman (
-                            <a
-                                href="https://psychology.princeton.edu/people/alin-coman"
-                                style={{
-                                    fontWeight: 300,
-                                    textDecoration: "underline dotted",
-                                    textDecorationThickness: 1
-                                }}
-                                target="_blank"
-                            >
-                                website
-                            </a>
-                            ) and Ph.D. Candidate Ari Dyckovsky (
-                            <a
-                                href="https://www.aridyckovsky.com/"
-                                style={{
-                                    fontWeight: 300,
-                                    textDecoration: "underline dotted",
-                                    textDecorationThickness: 1
-                                }}
-                                target="_blank"
-                            >
-                                website
-                            </a>
-                            ). <br />
-                            you can check out our progress here:{" "}
-                            <a
-                                href="https://www.odin.systems/"
-                                style={{
-                                    fontWeight: 300,
-                                    textDecoration: "underline dotted",
-                                    textDecorationThickness: 1
-                                }}
-                                target="_blank"
-                            >
-                                https://www.odin.systems/
-                            </a>
-                            .{/* <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} /> */}
-                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
-                        </Experience>
-                        {/*  */}
-                        <Experience>
-                            <ExperienceHeader>
                                 <p style={{ fontWeight: 500 }}>software engineer intern</p>&nbsp;@&nbsp;microsoft
                                 <p style={{ marginLeft: "auto" }}>summer 2024</p>
                             </ExperienceHeader>
