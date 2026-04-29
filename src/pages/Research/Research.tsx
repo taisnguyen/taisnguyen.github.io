@@ -141,7 +141,7 @@ const Research = () => {
                                 }}
                                 target="_blank"
                             >
-                                https://github.com/nanofuzz/nanofuzz/
+                                https://github.com/nanofuzz/nanofuzz
                             </a>
                             .
                             <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
@@ -181,19 +181,6 @@ const Research = () => {
                                 website
                             </a>
                             ). <br />
-                            you can check out our progress here:{" "}
-                            <a
-                                href="https://www.odin.systems/"
-                                style={{
-                                    fontWeight: 300,
-                                    textDecoration: "underline dotted",
-                                    textDecorationThickness: 1
-                                }}
-                                target="_blank"
-                            >
-                                https://www.odin.systems/
-                            </a>
-                            .{/* <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} /> */}
                             <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
                         </Experience>
                         {/*  */}
