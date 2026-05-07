@@ -609,7 +609,7 @@ function ConwayAsciiAnimation(
         isInitialized = true;
     }
 
-    if (x === 0 && y === 0 && isInitialized && !fadingOut) {
+    if (x === 0 && y === 0 && isInitialized) {
         if (gridState.length !== ctx.rows || (gridState[0] && gridState[0].length !== ctx.cols)) {
             const resizedGrid = Array.from({ length: ctx.rows }, () =>
                 Array.from({ length: ctx.cols }, () => ({ alive: false, neighbors: 0 }))
