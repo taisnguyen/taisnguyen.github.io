@@ -118,7 +118,7 @@ const University = () => {
                             hosted by the business professionals of america (bpa). won 1st place nationals (US) C++
                             competition & 7th place nationals (US) python competition & 1st place states (FL) C++
                             competition & 1st place states (FL) python competition.
-                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
+                            {/* <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} /> */}
                         </Experience>
                         {/*  */}
 

@@ -80,7 +80,7 @@ const Teaching = () => {
                             </ExperienceHeader>
                             held office hours for COS226: Data Structures and Algorithms, assisting students with course
                             material and programming assignments during lab sessions.
-                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
+                            {/* <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} /> */}
                         </Experience>
 
                         <div style={{ marginBottom: "4rem" }} />

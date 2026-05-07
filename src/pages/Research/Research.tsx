@@ -231,7 +231,7 @@ const Research = () => {
                                 website
                             </a>
                             ).
-                            <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} />
+                            {/* <hr style={{ border: "none", borderTop: "2px solid #eee", margin: "20px 0" }} /> */}
                         </Experience>
                         {/*  */}
 
