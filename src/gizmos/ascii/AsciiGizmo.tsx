@@ -7,8 +7,7 @@ import {
     SinAsciiAnimation,
     GravityAsciiAnimation,
     TextScrollAsciiAnimation,
-    SandAsciiAnimation,
-    SwimFishAsciiAnimation
+    SandAsciiAnimation
 } from "./animations";
 import { AsciiAnimation } from "./animations";
 
@@ -20,8 +19,6 @@ const ASCII_ANIMATIONS_1: AsciiAnimation[] = [
 ];
 ASCII_ANIMATIONS_1.sort(() => Math.random() - 0.5);
 ASCII_ANIMATIONS_1.unshift(SinAsciiAnimation);
-
-const ASCII_ANIMATIONS_2: AsciiAnimation[] = [SwimFishAsciiAnimation];
 
 interface AsciiGizmoProps {
     id: string;
@@ -44,7 +41,7 @@ const AsciiGizmo = ({ id, asciiAnimationsPreset }: AsciiGizmoProps) => {
         if (!AsciiGizmoDOM) return;
         const manager = new AsciiAnimationManager(
             AsciiGizmoDOM,
-            asciiAnimationsPreset === 1 ? ASCII_ANIMATIONS_1 : ASCII_ANIMATIONS_2
+            asciiAnimationsPreset === 1 ? ASCII_ANIMATIONS_1 : ASCII_ANIMATIONS_1
         );
         setAsciiAnimationManager(manager);
 
