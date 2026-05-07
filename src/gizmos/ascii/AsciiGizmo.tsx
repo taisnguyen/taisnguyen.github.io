@@ -7,18 +7,14 @@ import {
     SinAsciiAnimation,
     GravityAsciiAnimation,
     TextScrollAsciiAnimation,
-    SandAsciiAnimation
+    SandAsciiAnimation,
+    ConwayAsciiAnimation
 } from "./animations";
 import { AsciiAnimation } from "./animations";
 
-const ASCII_ANIMATIONS_1: AsciiAnimation[] = [
-    GravityAsciiAnimation,
-    SandAsciiAnimation
-    // NumberAsciiAnimation
-    // TextScrollAsciiAnimation,
-];
+const ASCII_ANIMATIONS_1: AsciiAnimation[] = [GravityAsciiAnimation, SandAsciiAnimation, ConwayAsciiAnimation];
 ASCII_ANIMATIONS_1.sort(() => Math.random() - 0.5);
-ASCII_ANIMATIONS_1.unshift(SinAsciiAnimation);
+ASCII_ANIMATIONS_1.unshift(SandAsciiAnimation);
 
 interface AsciiGizmoProps {
     id: string;

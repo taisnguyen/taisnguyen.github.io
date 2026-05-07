@@ -447,6 +447,8 @@ interface Sand {
 
 const SANDS: Sand[] = [];
 const SAND_AT_XY = new Map<string, string>();
+let IS_COLLAPSING = false;
+let SAND_LAST_TIME = 0;
 
 function SandAsciiAnimation(
     x: number,
@@ -456,15 +458,30 @@ function SandAsciiAnimation(
     ctx: AsciiAnimationManagerContext,
     fadingOut: boolean
 ) {
-    const ASCII_STRING = "42";
+    const ASCII_STRING = "dGFpLnNhbmgubmdAZ21haWwuY29t";
 
-    if (x === 0 && y === 0 && Math.floor(time) % 2 === 0 && ctx && !fadingOut) {
+    if (x === 0 && y === 0 && ctx) {
+        let pileTop = ctx.rows;
+        const cx = Math.floor(ctx.cols / 2);
+        for (let checkY = ctx.rows - 1; checkY >= 0; checkY--) {
+            if (SAND_AT_XY.has(`${cx},${checkY}`)) {
+                pileTop = checkY;
+            } else {
+                break;
+            }
+        }
+        if (pileTop < ctx.rows - 22) IS_COLLAPSING = true;
+        if (pileTop >= ctx.rows - 10) IS_COLLAPSING = false;
+    }
+
+    if (x === 0 && y === 0 && time - SAND_LAST_TIME > 0.2 && ctx && !fadingOut) {
         SANDS.push({
-            x: Math.random() * ctx.cols,
+            x: ctx.cols / 2,
             y: Math.random() * 10 - 20,
             char: ASCII_STRING[Math.floor(Math.random() * ASCII_STRING.length)],
             timeSpawned: time
         });
+        SAND_LAST_TIME = time;
     }
 
     // // update only once per iteration
@@ -481,7 +498,8 @@ function SandAsciiAnimation(
             }
 
             // Update sand position
-            sand.y += 0.8;
+            sand.y += 0.6;
+
             // stop at bottom
             if (sand.y >= ctx.rows) sand.y = ctx.rows - 1;
 
@@ -495,6 +513,18 @@ function SandAsciiAnimation(
                     sand.x < ctx.cols - 1
                 ) {
                     sand.x += 1;
+                } else if (IS_COLLAPSING && sand.y < ctx.rows - 5) {
+                    const dir = sand.x < ctx.cols / 2 ? -1 : 1;
+                    if (
+                        !SAND_AT_XY.has(`${Math.floor(sand.x) + dir},${Math.floor(sand.y) - 1}`) &&
+                        sand.x + dir > 0 &&
+                        sand.x + dir < ctx.cols - 1
+                    ) {
+                        sand.x += dir;
+                        sand.y -= 1;
+                    } else {
+                        sand.y -= 1;
+                    }
                 } else {
                     sand.y -= 1; // move back up a bit
                 }
@@ -523,6 +553,123 @@ function SandAsciiAnimation(
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 
+// Define what a cell looks like now
+type CellState = {
+    alive: boolean;
+    neighbors: number;
+};
+
+let gridState: CellState[][] = [];
+let isInitialized = false;
+let lastTickTime = 0;
+const TICK_RATE_MS = 0.6;
+
+function ConwayAsciiAnimation(
+    x: number,
+    y: number,
+    time: number,
+    opacity: number,
+    ctx: AsciiAnimationManagerContext,
+    fadingOut: boolean
+) {
+    if (!isInitialized && ctx.cols > 0 && ctx.rows > 0) {
+        gridState = Array.from({ length: ctx.rows }, () =>
+            Array.from({ length: ctx.cols }, () => ({ alive: false, neighbors: 0 }))
+        );
+
+        const centerX = ctx.cols / 2;
+        const centerY = ctx.rows / 2;
+        const maxDist = Math.min(centerX, centerY);
+
+        for (let r = 0; r < ctx.rows; r++) {
+            for (let c = 0; c < ctx.cols; c++) {
+                const dist = Math.sqrt(Math.pow(c - centerX, 2) + Math.pow(r - centerY, 2));
+                const probability = Math.max(0, 1 - dist / maxDist) * 0.42;
+                gridState[r][c].alive = Math.random() < probability;
+            }
+        }
+
+        for (let r = 0; r < ctx.rows; r++) {
+            for (let c = 0; c < ctx.cols; c++) {
+                let aliveNeighbors = 0;
+                for (let dr = -1; dr <= 1; dr++) {
+                    for (let dc = -1; dc <= 1; dc++) {
+                        if (dr === 0 && dc === 0) continue;
+                        const nr = r + dr,
+                            nc = c + dc;
+                        if (nr >= 0 && nr < ctx.rows && nc >= 0 && nc < ctx.cols) {
+                            if (gridState[nr][nc].alive) aliveNeighbors++;
+                        }
+                    }
+                }
+                gridState[r][c].neighbors = aliveNeighbors;
+            }
+        }
+
+        isInitialized = true;
+    }
+
+    if (x === 0 && y === 0 && isInitialized && !fadingOut) {
+        if (gridState.length !== ctx.rows || (gridState[0] && gridState[0].length !== ctx.cols)) {
+            const resizedGrid = Array.from({ length: ctx.rows }, () =>
+                Array.from({ length: ctx.cols }, () => ({ alive: false, neighbors: 0 }))
+            );
+
+            for (let r = 0; r < Math.min(gridState.length, ctx.rows); r++) {
+                for (let c = 0; c < Math.min(gridState[0].length, ctx.cols); c++) {
+                    resizedGrid[r][c].alive = gridState[r][c].alive;
+                    resizedGrid[r][c].neighbors = gridState[r][c].neighbors;
+                }
+            }
+            gridState = resizedGrid;
+        }
+
+        if (time - lastTickTime > TICK_RATE_MS) {
+            const nextState = Array.from({ length: ctx.rows }, () =>
+                Array.from({ length: ctx.cols }, () => ({ alive: false, neighbors: 0 }))
+            );
+
+            for (let r = 0; r < ctx.rows; r++) {
+                for (let c = 0; c < ctx.cols; c++) {
+                    let aliveNeighbors = 0;
+                    for (let dr = -1; dr <= 1; dr++) {
+                        for (let dc = -1; dc <= 1; dc++) {
+                            if (dr === 0 && dc === 0) continue;
+
+                            const nr = r + dr;
+                            const nc = c + dc;
+
+                            if (nr >= 0 && nr < ctx.rows && nc >= 0 && nc < ctx.cols) {
+                                if (gridState[nr][nc].alive) aliveNeighbors++;
+                            }
+                        }
+                    }
+
+                    nextState[r][c].neighbors = aliveNeighbors;
+
+                    const isAlive = gridState[r][c].alive;
+                    if (isAlive && (aliveNeighbors === 2 || aliveNeighbors === 3)) {
+                        nextState[r][c].alive = true;
+                    } else if (!isAlive && aliveNeighbors === 3) {
+                        nextState[r][c].alive = true;
+                    } else {
+                        nextState[r][c].alive = false;
+                    }
+                }
+            }
+
+            gridState = nextState;
+            lastTickTime = time;
+        }
+    }
+
+    if (isInitialized && gridState[y] !== undefined && gridState[y][x]?.alive) {
+        return gridState[y][x].neighbors.toString();
+    }
+
+    return " ";
+}
+
 export {
     AsciiAnimationManager,
     NumberAsciiAnimation,
@@ -530,7 +677,8 @@ export {
     BoidsAsciiAnimation,
     GravityAsciiAnimation,
     TextScrollAsciiAnimation,
-    SandAsciiAnimation
+    SandAsciiAnimation,
+    ConwayAsciiAnimation
 };
 
 export type { AsciiAnimation };
