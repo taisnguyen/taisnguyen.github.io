@@ -523,6 +523,191 @@ function SandAsciiAnimation(
 ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 
+// Define these globally or outside the component's render cycle
+const HOURGLASS_SANDS: any[] = [];
+const HOURGLASS_SAND_AT_XY = new Map<string, string>();
+let HOURGLASS_INITIALIZED = false;
+let HOURGLASS_RESET_TIMER: number | null = null;
+
+function HourglassAsciiAnimation(
+    x: number,
+    y: number,
+    time: number,
+    opacity: number,
+    ctx: any, // AsciiAnimationManagerContext
+    fadingOut: boolean
+) {
+    const ASCII_STRING = "sand";
+    const cx = Math.floor(ctx.cols / 2);
+    const cy = Math.floor(ctx.rows / 2);
+
+    // Hourglass Dimensions
+    const maxHalfHeight = Math.min(Math.floor(ctx.rows / 2) - 4, 14);
+    const maxWidth = Math.floor(maxHalfHeight * 1.5);
+    const wallThickness = 3;
+
+    // Mathematical curve for the bulb shape
+    const getInnerWidth = (dy: number) => {
+        if (dy === 0) return 0; // Strict Bottleneck
+        const ratio = dy / maxHalfHeight;
+        return 1 + Math.floor((maxWidth - 1) * Math.sin((ratio * Math.PI) / 2));
+    };
+
+    // Helper to define internal physics boundaries
+    const isValid = (sx: number, sy: number) => {
+        if (sy <= cy - maxHalfHeight) return false; // Top Lid
+        if (sy >= cy + maxHalfHeight + 1) return false; // Solid Bottom Lid
+
+        // Inside the hourglass chambers
+        const tdy = Math.abs(sy - cy);
+        const w = getInnerWidth(tdy);
+        return Math.abs(sx - cx) <= w;
+    };
+
+    // ==========================================
+    // 1. UPDATE STATE (Once per frame)
+    // ==========================================
+    if (x === 0 && y === 0 && ctx && !fadingOut) {
+        let topSandCount = 0;
+        for (const s of HOURGLASS_SANDS) if (s.y < cy) topSandCount++;
+
+        // If the top is empty, wait a short moment, then reset (flip the hourglass)
+        if (topSandCount === 0) {
+            if (HOURGLASS_RESET_TIMER === null) HOURGLASS_RESET_TIMER = time;
+            if (time - HOURGLASS_RESET_TIMER > 150) {
+                // Settle delay
+                HOURGLASS_INITIALIZED = false;
+                HOURGLASS_RESET_TIMER = null;
+            }
+        } else {
+            HOURGLASS_RESET_TIMER = null;
+        }
+
+        // Pre-fill upper chamber
+        if (!HOURGLASS_INITIALIZED) {
+            HOURGLASS_INITIALIZED = true;
+            HOURGLASS_SANDS.length = 0;
+            HOURGLASS_SAND_AT_XY.clear();
+
+            for (let ty = cy - maxHalfHeight + 1; ty < cy; ty++) {
+                const tdy = Math.abs(ty - cy);
+                const w = getInnerWidth(tdy);
+                for (let tx = cx - w; tx <= cx + w; tx++) {
+                    // Fill 80% solid to create a good volume of liquid
+                    if (Math.random() > 0.2) {
+                        HOURGLASS_SANDS.push({
+                            x: tx,
+                            y: ty,
+                            char: ASCII_STRING[Math.floor(Math.random() * ASCII_STRING.length)]
+                        });
+                    }
+                }
+            }
+        }
+
+        // Sort bottom-to-top so lowest drops move out of the way first.
+        HOURGLASS_SANDS.sort((a, b) => b.y - a.y);
+
+        HOURGLASS_SAND_AT_XY.clear();
+        for (const sand of HOURGLASS_SANDS) {
+            HOURGLASS_SAND_AT_XY.set(`${sand.x},${sand.y}`, sand.char);
+        }
+
+        // if (Math.floor(time) % 20 === 0) {
+        for (let i = 0; i < HOURGLASS_SANDS.length; i++) {
+            const sand = HOURGLASS_SANDS[i];
+
+            const gridX = sand.x;
+            const gridY = sand.y;
+
+            HOURGLASS_SAND_AT_XY.delete(`${gridX},${gridY}`);
+
+            const nextY = gridY + 1; // Strict integer movement
+
+            const downValid = isValid(gridX, nextY) && !HOURGLASS_SAND_AT_XY.has(`${gridX},${nextY}`);
+            const downLeftValid = isValid(gridX - 1, nextY) && !HOURGLASS_SAND_AT_XY.has(`${gridX - 1},${nextY}`);
+            const downRightValid = isValid(gridX + 1, nextY) && !HOURGLASS_SAND_AT_XY.has(`${gridX + 1},${nextY}`);
+
+            if (downValid) {
+                sand.y = nextY;
+            } else {
+                const preferLeft = Math.random() < 0.5;
+
+                // 1. Try Diagonal (Gravity)
+                if (preferLeft && downLeftValid) {
+                    sand.y = nextY;
+                    sand.x -= 1;
+                } else if (!preferLeft && downRightValid) {
+                    sand.y = nextY;
+                    sand.x += 1;
+                } else if (downLeftValid) {
+                    sand.y = nextY;
+                    sand.x -= 1;
+                } else if (downRightValid) {
+                    sand.y = nextY;
+                    sand.x += 1;
+                } else {
+                    // 2. LIQUID PHYSICS: Slide horizontally to level out
+                    const leftValid = isValid(gridX - 1, gridY) && !HOURGLASS_SAND_AT_XY.has(`${gridX - 1},${gridY}`);
+                    const rightValid = isValid(gridX + 1, gridY) && !HOURGLASS_SAND_AT_XY.has(`${gridX + 1},${gridY}`);
+
+                    if (preferLeft && leftValid) {
+                        sand.x -= 1;
+                    } else if (!preferLeft && rightValid) {
+                        sand.x += 1;
+                    } else if (leftValid) {
+                        sand.x -= 1;
+                    } else if (rightValid) {
+                        sand.x += 1;
+                    }
+                }
+            }
+
+            HOURGLASS_SAND_AT_XY.set(`${sand.x},${sand.y}`, sand.char);
+        }
+    }
+
+    // ==========================================
+    // 2. RENDER PHASE
+    // ==========================================
+    const dy = Math.abs(y - cy);
+    const dist = Math.abs(x - cx);
+
+    if (dy <= maxHalfHeight) {
+        const innerW = getInnerWidth(dy);
+
+        // Keep the neck clear so liquid flows
+        if (dy === 0 && dist <= 0) {
+            if (HOURGLASS_SAND_AT_XY.has(`${x},${y}`)) return HOURGLASS_SAND_AT_XY.get(`${x},${y}`)!;
+            return " ";
+        }
+
+        // Draw Thick Walls
+        if (dist > innerW && dist <= innerW + wallThickness) {
+            return " ";
+        }
+    }
+
+    // Top and Bottom Caps
+    if (dy === maxHalfHeight + 1) {
+        const innerW = getInnerWidth(maxHalfHeight);
+        if (dist <= innerW + wallThickness) {
+            return " "; // Completely solid base
+        }
+    }
+
+    // Draw Liquid
+    if (HOURGLASS_SAND_AT_XY.has(`${x},${y}`)) {
+        return HOURGLASS_SAND_AT_XY.get(`${x},${y}`)!;
+    }
+
+    return " ";
+}
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
 const FISH_SPRITES_RIGHT: string[] = [
     ">--))))*>",
     "><((((>",
@@ -769,7 +954,8 @@ export {
     GravityAsciiAnimation,
     TextScrollAsciiAnimation,
     SandAsciiAnimation,
-    SwimFishAsciiAnimation
+    SwimFishAsciiAnimation,
+    HourglassAsciiAnimation
 };
 
 export type { AsciiAnimation };
