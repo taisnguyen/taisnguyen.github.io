@@ -16,7 +16,7 @@ const MasonryPhoto = ({ photo, onClick }: { photo: any; onClick: () => void }) =
                 />
             </div>
 
-            <p>{photo.caption && <div className={styles.caption}>{photo.caption}</div>}</p>
+            {/* <p>{photo.caption && <div className={styles.caption}>{photo.caption}</div>}</p> */}
         </div>
     );
 };
@@ -52,33 +52,33 @@ const Photos = () => {
         {
             id: 1,
             src: "https://i.imgur.com/L8qAtNz.jpeg",
-            aspectRatio: "4160/6240",
-            caption: "tsim sha tsui, hong kong, 2025 // navigating the midday heat through the dense city grid."
+            aspectRatio: "4160/6240"
+            // caption: "tsim sha tsui, hong kong, 2025"
         },
         {
             id: 2,
             src: "https://i.imgur.com/HBqYXJO.jpeg",
-            aspectRatio: "6240/4160",
-            caption: "princeton, nj, 2026 // our precious man man."
+            aspectRatio: "6240/4160"
+            // caption: "princeton, nj, 2026"
         },
         {
             id: 3,
             src: "https://i.imgur.com/GthCMqG.jpeg",
-            aspectRatio: "6240/4160",
-            caption: "seattle, wa, 2024 // quiet transit on the way back into the city."
-        },
-        {
-            id: 4,
-            src: "https://i.imgur.com/dIVeUvE.jpeg",
-            aspectRatio: "6240/4160",
-            caption: "seattle, wa, 2024 // slow afternoons downtown."
-        },
-        {
-            id: 5,
-            src: "https://i.imgur.com/7a4cWga.jpeg",
-            aspectRatio: "5981/4116",
-            caption: "tsim sha tsui, hong kong, 2025"
-        },
+            aspectRatio: "6240/4160"
+            // caption: "seattle, wa, 2024"
+        }
+        // {
+        //     id: 4,
+        //     src: "https://i.imgur.com/dIVeUvE.jpeg",
+        //     aspectRatio: "6240/4160"
+        //     // caption: "seattle, wa, 2024"
+        // },
+        // {
+        //     id: 5,
+        //     src: "https://i.imgur.com/7a4cWga.jpeg",
+        //     aspectRatio: "5981/4116"
+        //     // caption: "tsim sha tsui, hong kong, 2025"
+        // }
         // { id: 7, src: "https://i.imgur.com/XmJCoSH.jpeg", aspectRatio: "4160/6240", caption: "saigon, vietnam, 2025" }
     ];
 
