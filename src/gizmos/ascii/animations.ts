@@ -193,7 +193,7 @@ function NumberAsciiAnimation(x: number, y: number, time: number, opacity: numbe
 }
 
 function SinAsciiAnimation(x: number, y: number, time: number, opacity: number) {
-    const ASCII_STRING = "0101010010101       ";
+    const ASCII_STRING = "               0101010101            ";
     const o = Math.sin(y * Math.sin(time / 80) * 0.2 + x * 0.04 + time / 80) * 20;
     const i = Math.round(Math.abs(x + y + o)) % ASCII_STRING.length;
     return ASCII_STRING[i];
@@ -491,7 +491,7 @@ function SandAsciiAnimation(
             const sand = SANDS[i];
 
             // delete if time - timeSpawned > 50:
-            if (time - sand.timeSpawned > 400) {
+            if (time - sand.timeSpawned > 150) {
                 SANDS.splice(i, 1);
                 i--;
                 continue;

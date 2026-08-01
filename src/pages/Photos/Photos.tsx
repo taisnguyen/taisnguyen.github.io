@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Photos.module.scss";
 
 const MasonryPhoto = ({ photo, onClick }: { photo: any; onClick: () => void }) => {
@@ -22,29 +22,81 @@ const MasonryPhoto = ({ photo, onClick }: { photo: any; onClick: () => void }) =
 };
 
 const Photos = () => {
+    const contentBoundsRef = useRef<HTMLDivElement>(null);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+    const [showFooter, setShowFooter] = useState(false);
+    const [footerBounds, setFooterBounds] = useState({
+        left: 0,
+        width: 0
+    });
+
     const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
 
     useEffect(() => {
-        const scrollContainer = document.getElementsByClassName(styles.scrollContainer)[0] as HTMLDivElement;
-        const scrollFooter = document.getElementsByClassName(styles.scrollFooter)[0] as HTMLDivElement;
+        const contentBounds = contentBoundsRef.current;
+        const scrollContainer = scrollContainerRef.current;
 
-        if (!scrollContainer || !scrollFooter) return;
-        const isScrollable = scrollContainer.scrollHeight > scrollContainer.clientHeight;
-        if (!isScrollable) {
-            scrollFooter.style.display = "none";
-            return;
-        }
+        if (!contentBounds || !scrollContainer) return;
 
-        const handleScroll = () => {
-            const atTop = scrollContainer.scrollTop === 0;
-            scrollFooter.style.opacity = atTop ? "1" : "0";
+        let isActive = true;
+        let firstAnimationFrame = 0;
+        let secondAnimationFrame = 0;
+
+        const updateFooter = () => {
+            const rect = contentBounds.getBoundingClientRect();
+            const nextBounds = {
+                left: rect.left,
+                width: rect.width
+            };
+
+            setFooterBounds((currentBounds) => {
+                if (currentBounds.left === nextBounds.left && currentBounds.width === nextBounds.width) {
+                    return currentBounds;
+                }
+
+                return nextBounds;
+            });
+
+            const isScrollable = scrollContainer.scrollHeight > scrollContainer.clientHeight + 1;
+            const shouldShowFooter = isScrollable && scrollContainer.scrollTop <= 1;
+
+            setShowFooter((currentValue) => (currentValue === shouldShowFooter ? currentValue : shouldShowFooter));
         };
 
-        handleScroll();
-        scrollContainer.addEventListener("scroll", handleScroll);
+        const resizeObserver = new ResizeObserver(updateFooter);
+
+        resizeObserver.observe(contentBounds);
+        resizeObserver.observe(scrollContainer);
+
+        if (contentBounds.parentElement) {
+            resizeObserver.observe(contentBounds.parentElement);
+        }
+
+        Array.from(scrollContainer.children).forEach((child) => {
+            resizeObserver.observe(child as Element);
+        });
+
+        scrollContainer.addEventListener("scroll", updateFooter);
+        window.addEventListener("resize", updateFooter);
+
+        firstAnimationFrame = requestAnimationFrame(() => {
+            secondAnimationFrame = requestAnimationFrame(updateFooter);
+        });
+
+        void document.fonts?.ready.then(() => {
+            if (isActive) updateFooter();
+        });
 
         return () => {
-            scrollContainer.removeEventListener("scroll", handleScroll);
+            isActive = false;
+
+            cancelAnimationFrame(firstAnimationFrame);
+            cancelAnimationFrame(secondAnimationFrame);
+
+            scrollContainer.removeEventListener("scroll", updateFooter);
+            window.removeEventListener("resize", updateFooter);
+            resizeObserver.disconnect();
         };
     }, []);
 
@@ -85,11 +137,11 @@ const Photos = () => {
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.introduction}>
+                <div ref={contentBoundsRef} className={styles.introduction}>
                     <h3 style={{ fontFamily: "Roboto", fontWeight: 400 }}>tai sanh nguyen</h3>
                     <p style={{ marginBottom: "2em" }}>my favorite photos, each captured with the fujifilm x100v</p>
 
-                    <div className={styles.scrollContainer}>
+                    <div ref={scrollContainerRef} className={styles.scrollContainer}>
                         <div className={styles.masonryGrid}>
                             {photoData.map((photo) => (
                                 <MasonryPhoto
@@ -104,7 +156,13 @@ const Photos = () => {
                 </div>
             </div>
 
-            <div className={styles.scrollFooter}>
+            <div
+                className={`${styles.scrollFooter} ${showFooter ? styles.footerVisible : ""}`}
+                style={{
+                    left: footerBounds.left,
+                    width: footerBounds.width
+                }}
+            >
                 <p>scroll for more</p>
             </div>
 

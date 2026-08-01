@@ -168,12 +168,9 @@ const Layout = ({ children }: LayoutProps) => {
                 <AsciiGizmo id="left-ascii-gizmo" asciiAnimationsPreset={1} />
             </div>
             {children}
-            {/* <div className={styles.rightSideContainer}>
-                <AsciiGizmo id="right-ascii-gizmo" asciiAnimationsPreset={2} />
-            </div> */}
             <div className={styles.footer}>
                 <div>
-                    © {new Date().getFullYear()} <span style={{ fontFamily: "Satoshi-Bold" }}>TAI SANH NGUYEN</span>
+                    {/* © {new Date().getFullYear()} <span style={{ fontFamily: "Satoshi-Bold" }}>TAI SANH NGUYEN</span> */}
                 </div>
                 <button
                     className={styles.pause}

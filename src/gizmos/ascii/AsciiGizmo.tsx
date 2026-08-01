@@ -14,7 +14,7 @@ import { AsciiAnimation } from "./animations";
 
 const ASCII_ANIMATIONS_1: AsciiAnimation[] = [SandAsciiAnimation, ConwayAsciiAnimation];
 ASCII_ANIMATIONS_1.sort(() => Math.random() - 0.5);
-ASCII_ANIMATIONS_1.unshift(ConwayAsciiAnimation);
+ASCII_ANIMATIONS_1.unshift(SinAsciiAnimation);
 
 interface AsciiGizmoProps {
     id: string;

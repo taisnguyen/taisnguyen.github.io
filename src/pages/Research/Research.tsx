@@ -1,46 +1,96 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import styles from "./Research.module.scss";
 
 const Research = () => {
+    const contentBoundsRef = useRef<HTMLDivElement>(null);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+    const [showFooter, setShowFooter] = useState(false);
+    const [footerBounds, setFooterBounds] = useState({
+        left: 0,
+        width: 0
+    });
+
     useEffect(() => {
-        const experienceContainer = document.getElementsByClassName(styles.experienceContainer)[0] as HTMLDivElement;
-        const experienceContainerFooter = document.getElementsByClassName(
-            styles.experienceContainerFooter
-        )[0] as HTMLDivElement;
+        const contentBounds = contentBoundsRef.current;
+        const scrollContainer = scrollContainerRef.current;
 
-        if (!experienceContainer || !experienceContainerFooter) return;
-        const isScrollable = experienceContainer.scrollHeight > experienceContainer.clientHeight;
-        if (!isScrollable) {
-            experienceContainerFooter.style.display = "none";
-            return;
-        }
+        if (!contentBounds || !scrollContainer) return;
 
-        const handleScroll = () => {
-            const atTop = experienceContainer.scrollTop === 0;
-            experienceContainerFooter.style.opacity = atTop ? "1" : "0";
+        let isActive = true;
+        let firstAnimationFrame = 0;
+        let secondAnimationFrame = 0;
+
+        const updateFooter = () => {
+            const rect = contentBounds.getBoundingClientRect();
+            const nextBounds = {
+                left: rect.left,
+                width: rect.width
+            };
+
+            setFooterBounds((currentBounds) => {
+                if (currentBounds.left === nextBounds.left && currentBounds.width === nextBounds.width) {
+                    return currentBounds;
+                }
+
+                return nextBounds;
+            });
+
+            const isScrollable = scrollContainer.scrollHeight > scrollContainer.clientHeight + 1;
+            const shouldShowFooter = isScrollable && scrollContainer.scrollTop <= 1;
+
+            setShowFooter((currentValue) => (currentValue === shouldShowFooter ? currentValue : shouldShowFooter));
         };
 
-        handleScroll();
-        experienceContainer.addEventListener("scroll", handleScroll);
+        const resizeObserver = new ResizeObserver(updateFooter);
+
+        resizeObserver.observe(contentBounds);
+        resizeObserver.observe(scrollContainer);
+
+        if (contentBounds.parentElement) {
+            resizeObserver.observe(contentBounds.parentElement);
+        }
+
+        Array.from(scrollContainer.children).forEach((child) => {
+            resizeObserver.observe(child as Element);
+        });
+
+        scrollContainer.addEventListener("scroll", updateFooter);
+        window.addEventListener("resize", updateFooter);
+
+        firstAnimationFrame = requestAnimationFrame(() => {
+            secondAnimationFrame = requestAnimationFrame(updateFooter);
+        });
+
+        void document.fonts?.ready.then(() => {
+            if (isActive) updateFooter();
+        });
 
         return () => {
-            experienceContainer.removeEventListener("scroll", handleScroll);
+            isActive = false;
+
+            cancelAnimationFrame(firstAnimationFrame);
+            cancelAnimationFrame(secondAnimationFrame);
+
+            scrollContainer.removeEventListener("scroll", updateFooter);
+            window.removeEventListener("resize", updateFooter);
+            resizeObserver.disconnect();
         };
     }, []);
 
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.introduction}>
+                <div ref={contentBoundsRef} className={styles.introduction}>
                     <h3 style={{ fontFamily: "Roboto", fontWeight: 400 }}>tai sanh nguyen</h3>
                     <p style={{ marginBottom: "2em" }}>my research experience</p>
 
-                    <div className={styles.experienceContainer}>
+                    <div ref={scrollContainerRef} className={styles.experienceContainer}>
                         <Experience>
                             <ExperienceHeader>
-                                <p style={{ fontWeight: 500 }}>visiting research intern</p>&nbsp;@&nbsp;uiuc siebel
-                                school of computing
+                                <p style={{ fontWeight: 500 }}>research intern</p>&nbsp;@&nbsp;uiuc siebel school of
+                                computing
                                 <p style={{ marginLeft: "auto" }}>summer 2026 - present</p>
                             </ExperienceHeader>
                             scaling massive network analysis.
@@ -88,8 +138,8 @@ const Research = () => {
                         </Experience>
                         <Experience>
                             <ExperienceHeader>
-                                <p style={{ fontWeight: 500 }}>visiting research intern</p>&nbsp;@&nbsp;cmu societal
-                                systems department
+                                <p style={{ fontWeight: 500 }}>research intern</p>&nbsp;@&nbsp;cmu societal systems
+                                department
                                 <p style={{ marginLeft: "auto" }}>summer 2025 - present</p>
                             </ExperienceHeader>
                             r&d on automated test suite generation, using coverage-guided fuzzing and a novel composite
@@ -239,7 +289,13 @@ const Research = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.experienceContainerFooter}>
+            <div
+                className={`${styles.experienceContainerFooter} ${showFooter ? styles.footerVisible : ""}`}
+                style={{
+                    left: footerBounds.left,
+                    width: footerBounds.width
+                }}
+            >
                 <p>scroll for more</p>
             </div>
         </>
