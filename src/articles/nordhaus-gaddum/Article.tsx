@@ -313,7 +313,7 @@ const Article = () => {
                     </p>
                     <br />
                     <p>
-                        <span style={{ fontWeight: 500 }}>Proof.</span> We begin by showing that
+                        <span style={{ fontStyle: "italic" }}>Proof.</span> We begin by showing that
                         <BlockMath math="|\mathcal{P}|-|\mathcal{I}| \geq |A||\mathcal{R}|. \tag{1.5.1}" />
                         Fix some vertex <InlineMath math="a \in A" />. We construct a map{" "}
                         <InlineMath math="\phi_a:\mathcal{R}\to \mathcal{P}\setminus\mathcal{I}" />, which we will show
@@ -525,7 +525,7 @@ const Article = () => {
                     <p>We now have everything that we need to prove Theorem 1.4.</p>
                     <br />
                     <p>
-                        <span style={{ fontWeight: 500 }}>Proof of Theorem 1.4</span>. First assume that{" "}
+                        <span style={{ fontStyle: "italic" }}>Proof of Theorem 1.4</span>. First assume that{" "}
                         <InlineMath math="|A|,|B|\geq 2" />. Recall that
                         <BlockMath math="|\Upsilon(G,\bar{G})|=|\mathcal{I}|+|\mathcal{L}|+|\mathcal{R}|." />
                         By Lemma 1.5, we have that
