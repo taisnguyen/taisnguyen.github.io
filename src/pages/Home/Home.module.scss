@@ -22,7 +22,8 @@
         grid-column-end: 4;
 
         width: auto;
-        margin: 2rem;
+        margin: 1.25rem;
+        padding-top: 24px;
     }
 }
 
@@ -82,7 +83,7 @@
     }
 
     @media screen and (max-width: 992px) {
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -102,6 +103,10 @@
 
     padding-right: 1.4rem;
     padding-bottom: 4em;
+
+    @media screen and (max-width: 992px) {
+        padding-right: 0;
+    }
 }
 
 .innerDescription {
@@ -114,7 +119,7 @@
 
     @media screen and (max-width: 992px) {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
 
         & > p {
             width: 100%;

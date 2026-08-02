@@ -2,15 +2,26 @@ import React, { useEffect, useRef, useState } from "react";
 import { InlineMath } from "react-katex";
 import styles from "./Home.module.scss";
 import styled from "styled-components";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 // lazy load
 const NordhausGaddumArticle = React.lazy(() => import("../../articles/nordhaus-gaddum"));
+const NordhausGaddumNotesArticle = React.lazy(() => import("../../articles/nordhaus-gaddum-notes"));
+
+const articleComponents: Record<string, React.LazyExoticComponent<React.ComponentType>> = {
+    "nordhaus-gaddum": NordhausGaddumArticle,
+    "nordhaus-gaddum-notes": NordhausGaddumNotesArticle
+};
 
 const Home = () => {
+    const navigate = useNavigate();
+    const { articleSlug } = useParams<{ articleSlug?: string }>();
+
     const contentBoundsRef = useRef<HTMLDivElement>(null);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-    const [articleElement, setArticleElement] = useState<JSX.Element | null>(null);
+    const ArticleComponent = articleSlug ? articleComponents[articleSlug] : undefined;
+    const isArticleOpen = ArticleComponent !== undefined;
     const [showFooter, setShowFooter] = useState(false);
     const [footerBounds, setFooterBounds] = useState({
         left: 0,
@@ -18,7 +29,7 @@ const Home = () => {
     });
 
     useEffect(() => {
-        if (articleElement) return;
+        if (isArticleOpen) return;
 
         const contentBounds = contentBoundsRef.current;
         const scrollContainer = scrollContainerRef.current;
@@ -84,12 +95,16 @@ const Home = () => {
             window.removeEventListener("resize", updateFooter);
             resizeObserver.disconnect();
         };
-    }, [articleElement]);
+    }, [isArticleOpen]);
+
+    if (articleSlug && !ArticleComponent) {
+        return <Navigate to="/home" replace />;
+    }
 
     return (
         <>
             <div className={styles.container}>
-                {articleElement ? (
+                {isArticleOpen && ArticleComponent ? (
                     <div className={styles.articleSlot}>
                         <div
                             style={{
@@ -105,7 +120,7 @@ const Home = () => {
                             <span
                                 style={{ cursor: "pointer", color: "#4a4a4a" }}
                                 aria-hidden="true"
-                                onClick={() => setArticleElement(null)}
+                                onClick={() => navigate("/home")}
                             >
                                 ← go back
                             </span>
@@ -117,8 +132,8 @@ const Home = () => {
                                 margin: "20px 0 0"
                             }}
                         />
-                        <React.Suspense fallback={<div style={{ color: "#4a4a4a" }}>Loading...</div>}>
-                            {articleElement}
+                        <React.Suspense fallback={<div style={{ color: "#4a4a4a", marginTop: "1em" }}>Loading...</div>}>
+                            <ArticleComponent />
                         </React.Suspense>
                     </div>
                 ) : (
@@ -139,7 +154,7 @@ const Home = () => {
                             </div>
 
                             <div style={{ marginTop: "0" }}>
-                                my recent projects
+                                ¶ my recent projects
                                 <hr
                                     style={{
                                         border: "none",
@@ -162,7 +177,7 @@ const Home = () => {
                                                 <br />
                                                 dominating sets
                                                 <br />
-                                                enumeration
+                                                bipartite graphs
                                                 <div
                                                     style={{
                                                         display: "flex",
@@ -176,7 +191,7 @@ const Home = () => {
                                                     <span
                                                         style={{ cursor: "pointer" }}
                                                         aria-hidden="true"
-                                                        onClick={() => setArticleElement(<NordhausGaddumArticle />)}
+                                                        onClick={() => navigate("/home/nordhaus-gaddum")}
                                                     >
                                                         read more →
                                                     </span>
@@ -223,7 +238,7 @@ const Home = () => {
                                                     }}
                                                 >
                                                     <span aria-hidden="true" style={{ opacity: 0.5 }}>
-                                                        read more →
+                                                        work in progress
                                                     </span>
                                                 </div>
                                             </div>
@@ -266,7 +281,7 @@ const Home = () => {
                                                     }}
                                                 >
                                                     <span aria-hidden="true" style={{ opacity: 0.5 }}>
-                                                        read more →
+                                                        work in progress
                                                     </span>
                                                 </div>
                                             </div>
@@ -280,12 +295,67 @@ const Home = () => {
                                 </div>
                             </div>
                             {/* CONTENT END */}
+                            {/*  */}
+                            <div style={{ marginTop: "0" }}>
+                                ✎ my recent notes
+                                <hr
+                                    style={{
+                                        border: "none",
+                                        borderTop: "2px solid #eee",
+                                        margin: "8px 0"
+                                    }}
+                                />
+                                <div style={{ marginBottom: "2em" }}>
+                                    <p style={{ marginBottom: "1em" }} />
+
+                                    <Project>
+                                        <ProjectHeader>
+                                            <p style={{ fontWeight: 500 }}>
+                                                nordhaus-gaddum inequalities for dominating-set counts in cographs
+                                            </p>
+
+                                            <div className="project-topics">
+                                                extremal graph theory
+                                                <br />
+                                                dominating sets
+                                                <br />
+                                                cographs
+                                                <div
+                                                    style={{
+                                                        display: "flex",
+                                                        justifyContent: "right",
+                                                        width: "100%",
+                                                        fontSize: "1em",
+                                                        marginTop: "auto",
+                                                        textDecoration: "underline dotted"
+                                                    }}
+                                                >
+                                                    <span
+                                                        style={{ cursor: "pointer" }}
+                                                        aria-hidden="true"
+                                                        onClick={() => navigate("/home/nordhaus-gaddum-notes")}
+                                                    >
+                                                        read more →
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </ProjectHeader>
+
+                                        <p style={{ fontFamily: "Satoshi-Variable" }}>
+                                            these notes explore the nordhaus-gaddum inequalities for dominating-set
+                                            counts in cographs, using ideas and terminology from work on common
+                                            neighborhoods.
+                                        </p>
+                                    </Project>
+                                </div>
+                            </div>
+                            {/*  */}
                         </div>
                     </div>
                 )}
             </div>
 
-            {!articleElement && (
+            {!isArticleOpen && (
                 <div
                     className={styles.containerFooter}
                     style={{
@@ -303,19 +373,34 @@ const Home = () => {
 };
 
 const Project = styled.div`
-    width: 100%;
-    margin-bottom: 0;
-
     display: grid;
     grid-template-columns: minmax(0, 1fr) max-content;
     column-gap: 2rem;
     align-items: start;
 
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 0;
+
     & > p {
         grid-column: 1;
 
+        min-width: 0;
+        margin-top: 0.8em;
+
         font-family: "Roboto", sans-serif;
         color: #5f5f5f;
+    }
+
+    @media screen and (max-width: 992px) {
+        grid-template-columns: minmax(0, 1fr);
+        column-gap: 0;
+        row-gap: 0.6em;
+
+        & > p {
+            grid-column: 1;
+            margin-top: 0.4em;
+        }
     }
 `;
 
@@ -324,10 +409,15 @@ const ProjectHeader = styled.div`
 
     & > :first-child {
         grid-column: 1;
+
+        min-width: 0;
+        margin-top: 0;
         margin-bottom: 0.2em;
+
+        overflow-wrap: anywhere;
     }
 
-    & > :last-child {
+    & > .project-topics {
         grid-column: 2;
         grid-row: 1 / span 100;
 
@@ -336,6 +426,34 @@ const ProjectHeader = styled.div`
         align-items: flex-end;
 
         height: 100%;
+
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    @media screen and (max-width: 992px) {
+        & > :first-child {
+            grid-column: 1;
+        }
+
+        & > .project-topics {
+            grid-column: 1;
+            grid-row: auto;
+
+            align-items: flex-start;
+
+            width: 100%;
+            height: auto;
+
+            text-align: left;
+            white-space: normal;
+        }
+
+        & > .project-topics > div {
+            justify-content: flex-start !important;
+
+            margin-top: 0.6em !important;
+        }
     }
 `;
 

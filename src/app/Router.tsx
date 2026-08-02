@@ -1,12 +1,7 @@
 import React from "react";
-import { HashRouter, Routes, Route, Navigate, RouteObject } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, RouteObject } from "react-router-dom";
 import LoadingView from "../components/LoadingView/LoadingView";
 
-// const Home = React.lazy(() => import("../pages/Home"));
-// const Work = React.lazy(() => import("../pages/Work"));
-// const University = React.lazy(() => import("../pages/University"));
-// const Research = React.lazy(() => import("../pages/Research"));
-// const Teaching = React.lazy(() => import("../pages/Teaching"));
 import Home from "../pages/Home";
 import Work from "../pages/Work";
 import University from "../pages/University";
@@ -14,18 +9,24 @@ import Research from "../pages/Research";
 import Teaching from "../pages/Teaching";
 import Photos from "../pages/Photos";
 
+const homeElement = (
+    <React.Suspense fallback={<LoadingView />}>
+        <Home />
+    </React.Suspense>
+);
+
 const routes: RouteObject[] = [
     {
         path: "/",
-        element: <Navigate to="/home" />
+        element: <Navigate to="/home" replace />
     },
     {
         path: "/home",
-        element: (
-            <React.Suspense fallback={<LoadingView />}>
-                <Home />
-            </React.Suspense>
-        )
+        element: homeElement
+    },
+    {
+        path: "/home/:articleSlug",
+        element: homeElement
     },
     {
         path: "/work_experience",
@@ -66,18 +67,22 @@ const routes: RouteObject[] = [
                 <Photos />
             </React.Suspense>
         )
+    },
+    {
+        path: "*",
+        element: <Navigate to="/home" replace />
     }
 ];
 
 const Router = () => {
     return (
-        <HashRouter>
+        <BrowserRouter>
             <Routes>
                 {routes.map((route) => (
                     <Route key={route.path} path={route.path} element={route.element} />
                 ))}
             </Routes>
-        </HashRouter>
+        </BrowserRouter>
     );
 };
 

@@ -63,15 +63,17 @@ const Article = () => {
 
     return (
         <div ref={containerRef} className={styles.container}>
-            {/* This entire section stays fixed. */}
             <div className={styles.fixedHeader}>
                 <div className={styles.introduction}>
                     <p style={{ fontWeight: 500, color: "#4a4a4a" }}>
                         Nordhaus-Gaddum Inequalities for Dominating-Set Counts in Bipartite Graphs
                     </p>
 
-                    <p style={{ fontWeight: 400, color: "#4a4a4a" }}>
-                        Topics: Extremal Graph Theory, Dominating Sets, Enumeration
+                    <p className={styles.topics}>
+                        <span className={styles.topicsLabel}>Topics:</span>
+                        <span className={styles.topic}>Extremal Graph Theory</span>
+                        <span className={styles.topic}>Dominating Sets</span>
+                        <span className={styles.topic}>Bipartite Graphs</span>
                     </p>
                 </div>
 
@@ -86,7 +88,7 @@ const Article = () => {
                 <hr className={styles.headerDivider} />
             </div>
 
-            <div ref={contentRef} className={styles.content} style={{ paddingTop: "20px" }}>
+            <div ref={contentRef} className={styles.content}>
                 <div ref={articleBodyRef} className={styles.articleBody}>
                     {/* CONTENT START */}
                     <p>

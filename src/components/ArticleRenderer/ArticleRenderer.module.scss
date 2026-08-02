@@ -13,6 +13,10 @@
 
     overflow: hidden;
 
+    & > * {
+        color: #4a4a4a;
+    }
+
     @media screen and (max-width: 992px) {
         /*
          * On mobile, this becomes the single scroll container. This lets the
@@ -80,6 +84,16 @@
         max-width: 100%;
         font-weight: 400;
     }
+
+    & > .articleTitle {
+        font-weight: 500;
+    }
+}
+
+.articleTitle {
+    margin-top: 0;
+
+    color: #4a4a4a;
 }
 
 .preprint {
@@ -90,6 +104,7 @@
 
     a {
         font-weight: 300;
+        color: #4a4a4a;
         text-decoration: underline dotted;
         text-decoration-thickness: 1px;
 
@@ -169,15 +184,62 @@
     }
 
     a {
+        color: #4a4a4a;
+
         overflow-wrap: anywhere;
         word-break: break-word;
     }
 
     :global(.katex-display) {
         max-width: 100%;
+
         overflow-x: auto;
         overflow-y: hidden;
     }
+}
+
+.articleParagraph {
+    max-width: 100%;
+    margin: 0;
+
+    color: #4a4a4a;
+}
+
+.articleParagraph + .articleParagraph {
+    margin-top: 1em;
+}
+
+.boldText {
+    font-weight: 500;
+}
+
+.italicText {
+    font-style: italic;
+}
+
+.displayMath {
+    width: 100%;
+    max-width: 100%;
+
+    color: #4a4a4a;
+}
+
+.citation {
+    white-space: nowrap;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.missingCitation,
+.missingSlot {
+    text-decoration: underline dotted;
+    text-decoration-thickness: 1px;
+}
+
+.missingSlot {
+    cursor: help;
 }
 
 .references {
@@ -207,6 +269,18 @@
     & > p {
         margin: 0;
     }
+}
+
+.reference {
+    scroll-margin-top: 1rem;
+}
+
+.reference + .reference {
+    margin-top: 0.35em;
+}
+
+.referenceNumber {
+    white-space: nowrap;
 }
 
 .containerFooter {
