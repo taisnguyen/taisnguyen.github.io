@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { createArticle } from "../../components/ArticleRenderer";
 import { InlineMath } from "react-katex";
 
+function section(text: string | React.ReactElement) {
+    return <div style={{ width: "100%", display: "flex", justifyContent: "center", height: "0.5em" }}>{text}</div>;
+}
+
 const Article = () => {
     const [showMessage, setShowMessage] = useState(false);
     const navigate = useNavigate();
@@ -70,10 +74,18 @@ const Article = () => {
                 <span style={{ float: "right" }}>
                     <InlineMath math="\blacksquare" />
                 </span>
-            )
+            ),
+            section1: () => section("1. Introduction"),
+            section2: () =>
+                section(
+                    <>
+                        2. Properties of <InlineMath math="\text{ }\nu" />
+                    </>
+                )
         },
 
         content: String.raw`
+\slot{section1}
 For an introduction to the Nordhaus-Gaddum inequalities for dominating-set counts, please see my writeup for the bipartite case \slot{bipartiteCase}.
 
 Without further ado, let us start with defining common neighborhoods.
@@ -98,7 +110,7 @@ $$
 \nu(G) = |\{ S \subseteq V(G) : \mathcal{C}_G(S) \neq \emptyset \}|.
 $$
 
-Then by Lemma 1.3, we can rewrite $\partial(G)$ for simple graphs $G$ as
+Then by Lemma 1.3, we can rewrite $\partial(G)$ for a simple graph $G$ on $n$ vertices as
 $$
 \partial(G) = 2^n - \nu(\bar{G}).
 $$
@@ -108,6 +120,16 @@ Then Conjecture 1.2 can be rewritten for simple graphs $G$ as
 $$
 \nu(G) + \nu(\bar{G}) \geq 2^{n+1} - 2(2^{\lfloor n/2 \rfloor} - 1)(2^{\lceil n/2 \rceil} - 1) - 2.
 $$
+This moves us away from counting dominating sets to counting nonempty common neighborhoods.
+
+\slot{section2}
+Let us explore some properties of $\nu$. For graphs $G$ and $H$, denote by $G + H$ the disjoint union of the two graphs. For some subset $S \subseteq V(G)$, denote by $G[S]$ the subgraph of $G$ induced by S. The following lemma is pretty easy to see.
+
+\bf{Lemma 2.1.} Let $G$ and $H$ be simple graphs. Then $\nu(G + H) = \nu(G) + \nu(H)$.
+
+\it{Proof.} Fix a subset $\emptyset \neq S \subseteq V(G + H)$. If $S$ is fully contained in $V(G)$, then $\mathcal{C}_{G+H}(S) = \mathcal{C}_G(S)$. And if $S$ is fully contained in $V(H)$, then $\mathcal{C}_{G+H}(S) = \mathcal{C}_H(S)$. If neither is the case, then $\mathcal{C}_{G+H}(S) = \emptyset$, since $(G+H)[G]$ and $(G+H)[H]$ do not have edges between them. Note that the empty subset $S = \emptyset$ contributes zero. The lemma follows. \slot{qed}
+
+
 
 \it{(to be cont.)}
 

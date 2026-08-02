@@ -91,6 +91,18 @@ const Article = () => {
             <div ref={contentRef} className={styles.content}>
                 <div ref={articleBodyRef} className={styles.articleBody}>
                     {/* CONTENT START */}
+                    <div
+                        style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "center",
+                            color: "#4a4a4a",
+                            height: "0.5em"
+                        }}
+                    >
+                        1. Introduction
+                    </div>
+                    <br />
                     <p>
                         <span style={{ fontWeight: 500 }}>Definition 1.1.</span> Let <InlineMath math="G" /> be some
                         graph. A subset of its vertices <InlineMath math="S \subseteq V(G)" /> is{" "}
