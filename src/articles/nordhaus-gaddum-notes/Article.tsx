@@ -127,9 +127,15 @@ Let us explore some properties of $\nu$. For graphs $G$ and $H$, denote by $G + 
 
 \bf{Lemma 2.1.} Let $G$ and $H$ be simple graphs. Then $\nu(G + H) = \nu(G) + \nu(H)$.
 
-\it{Proof.} Fix a subset $\emptyset \neq S \subseteq V(G + H)$. If $S$ is fully contained in $V(G)$, then $\mathcal{C}_{G+H}(S) = \mathcal{C}_G(S)$. And if $S$ is fully contained in $V(H)$, then $\mathcal{C}_{G+H}(S) = \mathcal{C}_H(S)$. If neither is the case, then $\mathcal{C}_{G+H}(S) = \emptyset$, since $(G+H)[G]$ and $(G+H)[H]$ do not have edges between them. Note that the empty subset $S = \emptyset$ contributes zero. The lemma follows. \slot{qed}
+\it{Proof.} Fix a subset $\emptyset \neq S \subseteq V(G + H)$. If $S$ is fully contained in $V(G)$, then $\mathcal{C}_{G+H}(S) = \mathcal{C}_G(S)$. And if $S$ is fully contained in $V(H)$, then $\mathcal{C}_{G+H}(S) = \mathcal{C}_H(S)$. If neither is the case, then $\mathcal{C}_{G+H}(S) = \emptyset$, since $(G+H)[V(G)]$ and $(G+H)[V(H)]$ do not have edges between them. Note that the empty subset $S = \emptyset$ contributes zero. The lemma follows. \slot{qed}
 
+For graphs $G$ and $H$, denote by $G \vee H$ the join of the two graphs, which is constructed by first performing a disjoint union of $G$ and $H$ and then creating an edge $uv$ for each pair $u \in V(G)$ and $v \in V(H)$.
 
+What can we say about $\nu(G \vee H)$? For a subset $\emptyset \neq S \subseteq V(G)$, it is clear that $\mathcal{C}_{G}(S) \subseteq \mathcal{C}_{G \vee H}(S)$. (And analogously for $H$). Thus, we can at least say that $\nu(G \vee H) \geq \nu(G) + \nu(H)$. But what if $S$ intersects both $V(G)$ and $V(H)$? Write $S = A \cup B$ with $A \subseteq V(G)$ and $B \subseteq V(H)$. Since each vertex in one part connects to all other vertices in the other part, it follows if $\mathcal{C}_{G}(A) \neq \emptyset$ or $\mathcal{C}_{H}(B) \neq \emptyset$, then $\mathcal{C}_{G \vee H}(S) \neq \emptyset$.
+
+We formalize this in the following lemma.
+
+\bf{Lemma 2.2.} Let $G$ and $H$ be simple graphs. Then $\nu(G \vee H) = \, ???$
 
 \it{(to be cont.)}
 
