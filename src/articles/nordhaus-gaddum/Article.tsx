@@ -518,7 +518,7 @@ const Article = () => {
                         />
                         The lemma follows.
                         <span style={{ float: "right" }}>
-                            <InlineMath math="\square" />
+                            <InlineMath math="\blacksquare" />
                         </span>
                     </p>
                     <br />
@@ -618,7 +618,7 @@ const Article = () => {
                             `}
                         />
                         <span style={{ float: "right" }}>
-                            <InlineMath math="\square" />
+                            <InlineMath math="\blacksquare" />
                         </span>
                     </p>
                     {/* <p>
