@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.2a3e84de.css",
-    "main.js": "/static/js/main.af854f03.js",
+    "main.js": "/static/js/main.fd7294db.js",
     "static/css/99.02891639.chunk.css": "/static/css/99.02891639.chunk.css",
     "static/js/99.78529b0f.chunk.js": "/static/js/99.78529b0f.chunk.js",
     "static/css/599.52c03dae.chunk.css": "/static/css/599.52c03dae.chunk.css",
-    "static/js/599.998d09d9.chunk.js": "/static/js/599.998d09d9.chunk.js",
+    "static/js/599.8df550a7.chunk.js": "/static/js/599.8df550a7.chunk.js",
     "static/media/Satoshi-Variable.ttf": "/static/media/Satoshi-Variable.536fda9b164542087fc7.ttf",
     "static/media/GeneralSans-Variable.ttf": "/static/media/GeneralSans-Variable.d7facbbe2ed9ae4aae49.ttf",
     "static/media/Satoshi-Medium.ttf": "/static/media/Satoshi-Medium.759562088ba19068aef8.ttf",
@@ -104,14 +104,14 @@
     "static/media/KaTeX_Size3-Regular.woff2": "/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/index.html",
     "main.2a3e84de.css.map": "/static/css/main.2a3e84de.css.map",
-    "main.af854f03.js.map": "/static/js/main.af854f03.js.map",
+    "main.fd7294db.js.map": "/static/js/main.fd7294db.js.map",
     "99.02891639.chunk.css.map": "/static/css/99.02891639.chunk.css.map",
     "99.78529b0f.chunk.js.map": "/static/js/99.78529b0f.chunk.js.map",
     "599.52c03dae.chunk.css.map": "/static/css/599.52c03dae.chunk.css.map",
-    "599.998d09d9.chunk.js.map": "/static/js/599.998d09d9.chunk.js.map"
+    "599.8df550a7.chunk.js.map": "/static/js/599.8df550a7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2a3e84de.css",
-    "static/js/main.af854f03.js"
+    "static/js/main.fd7294db.js"
   ]
 }
