@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createArticle } from "../../components/ArticleRenderer";
+import { InlineMath } from "react-katex";
 
 const Article = () => {
     const [showMessage, setShowMessage] = useState(false);
@@ -64,6 +65,11 @@ const Article = () => {
                 >
                     here
                 </span>
+            ),
+            qed: () => (
+                <span style={{ float: "right" }}>
+                    <InlineMath math="\blacksquare" />
+                </span>
             )
         },
 
@@ -72,9 +78,9 @@ For an introduction to the Nordhaus-Gaddum inequalities for dominating-set count
 
 Without further ado, let us start with defining common neighborhoods.
 
-\bf{Definition 1.1.} Let $G$ be a simple graph and $S \subseteq V(G)$ of its vertices. Then the \it{common neighborhood} $\mathcal{C}(S)$ of $S$ is defined by $\mathcal{C}(S) = \{ v \in V(G) : \forall s \in S, v \sim s \} = \bigcap_{s \in S} N(s)$.
+\bf{Definition 1.1.} Let $G$ be a simple graph and $S \subseteq V(G)$ be a subset of its vertices. Then the \it{common neighborhood} $\mathcal{C}_G(S)$ of $S$ in $G$ is defined by $\mathcal{C}_G(S) = \{ v \in V(G) : \forall s \in S, v \sim_G s \} = \bigcap_{s \in S} N_G(s)$, where $u \sim_G v$ means $u$ is adjacent to $v$ in $G$.
 
-Recall the definition of a dominating set and denote $\partial(G)$ to be the number of dominating sets in $G$. As a reminder, we care about the following conjecture.
+Recall the definition of a dominating set and denote $\partial(G)$ as the number of dominating sets in $G$. As a reminder, we care about the following conjecture.
 
 \bf{Conjecture 1.2} (\cite{keough2019})\bf{.} For a graph $G$ on $n$ vertices, it holds that
 $$
@@ -83,8 +89,25 @@ $$
 
 Now let us ask ourselves: how are common neighborhoods related to dominating sets?
 
-\bf{Lemma 1.3.} Let $G$ be a simple graph.
+\bf{Lemma 1.3.} Let $G$ be a simple graph and $S \subseteq V(G)$ be a subset of its vertices. Then $S$ dominates $G$ if and only if $\mathcal{C}_{\bar{G}}(S) = \emptyset$.
 
+\it{Proof.} First suppose $S$ dominates $G$ and suppose otherwise that $\mathcal{C}_{\bar{G}}(S) \neq \emptyset$. Fix any $v \in \mathcal{C}_{\bar{G}}(S)$. Since $G$ is simple, we have that $v \notin S$. Since $S$ dominates $G$ but $v \notin S$, there must exist some $u \in S$ such that $u \sim_G v$. But then $u \nsim_{\bar{G}} v$, so it follows that $v \notin \mathcal{C}_{\bar{G}}(S)$, which is a contradiction. Now suppose that $\mathcal{C}_{\bar{G}}(S) = \emptyset$. If $S = V(G)$, we are done, so assume not and fix any $v \in V(G) \setminus S$. We claim that there exists some $u \in S$ such that $u \sim_G v$. Indeed, suppose otherwise. Then it follows that $u \sim_{\bar{G}} v$ for all $u \in S$, which implies that $v \in \mathcal{C}_{\bar{G}}(S)$, which is a contradiction since $\mathcal{C}_{\bar{G}}(S)$ is empty. \slot{qed}
+
+For a simple graph $G$, denote $\nu(G)$ as the number of subsets of $G$ that have a nonempty common neighborhood in $G$. That is, we define
+$$
+\nu(G) = |\{ S \subseteq V(G) : \mathcal{C}_G(S) \neq \emptyset \}|.
+$$
+
+Then by Lemma 1.3, we can rewrite $\partial(G)$ for simple graphs $G$ as
+$$
+\partial(G) = 2^n - \nu(\bar{G}).
+$$
+Then Conjecture 1.2 can be rewritten for simple graphs $G$ as
+
+\bf{Conjecture 1.3.} For a simple graph $G$ on $n$ vertices, it holds that
+$$
+2^n - \nu(\bar{G}) + 2^n - \nu({G}) \leq 2(2^{\lfloor n/2 \rfloor} - 1)(2^{\lceil n/2 \rceil} - 1) + 2.
+$$
 
 \it{(to be cont.)}
 
