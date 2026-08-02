@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate, RouteObject } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate, RouteObject } from "react-router-dom";
 import LoadingView from "../components/LoadingView/LoadingView";
 
 import Home from "../pages/Home";
@@ -76,13 +76,13 @@ const routes: RouteObject[] = [
 
 const Router = () => {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 {routes.map((route) => (
                     <Route key={route.path} path={route.path} element={route.element} />
                 ))}
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 };
 
