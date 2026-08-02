@@ -99,7 +99,7 @@ $$
 \partial(G) + \partial(\bar{G}) \leq 2(2^{\lfloor n/2 \rfloor} - 1)(2^{\lceil n/2 \rceil} - 1) + 2.
 $$
 
-Now let us ask ourselves: how are common neighborhoods related to dominating sets?
+How are common neighborhoods related to dominating sets?
 
 \bf{Lemma 1.3.} Let $G$ be a simple graph and $S \subseteq V(G)$ be a subset of its vertices. Then $S$ dominates $G$ if and only if $\mathcal{C}_{\bar{G}}(S) = \emptyset$.
 
