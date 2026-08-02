@@ -8,10 +8,10 @@ const Article = () => {
     const navigate = useNavigate();
 
     return createArticle({
-        title: "Nordhaus-Gaddum Inequalities for Dominating-Set Counts in Cographs",
-        topics: ["Extremal Graph Theory", "Dominating Sets", "Cographs"],
+        title: "Notes on Nordhaus-Gaddum Inequalities for Dominating-Set Counts",
+        topics: ["Extremal Graph Theory", "Dominating Sets"],
         headerNote:
-            "These notes explore the Nordhaus-Gaddum inequalities for dominating-set counts in cographs, using ideas and terminology from work on common neighborhoods. (work in progress)",
+            "These notes explore the Nordhaus-Gaddum inequalities for dominating-set counts, using ideas and terminology from work on common neighborhoods. (work in progress)",
 
         references: [
             // {
@@ -106,7 +106,7 @@ Then Conjecture 1.2 can be rewritten for simple graphs $G$ as
 
 \bf{Conjecture 1.3.} For a simple graph $G$ on $n$ vertices, it holds that
 $$
-2^n - \nu(\bar{G}) + 2^n - \nu({G}) \leq 2(2^{\lfloor n/2 \rfloor} - 1)(2^{\lceil n/2 \rceil} - 1) + 2.
+\nu(G) + \nu(\bar{G}) \geq 2^{n+1} - 2(2^{\lfloor n/2 \rfloor} - 1)(2^{\lceil n/2 \rceil} - 1) - 2.
 $$
 
 \it{(to be cont.)}

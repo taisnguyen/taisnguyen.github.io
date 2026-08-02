@@ -311,15 +311,13 @@ const Home = () => {
                                     <Project>
                                         <ProjectHeader>
                                             <p style={{ fontWeight: 500 }}>
-                                                nordhaus-gaddum inequalities for dominating-set counts in cographs
+                                                notes on nordhaus-gaddum inequalities for dominating-set counts
                                             </p>
 
                                             <div className="project-topics">
                                                 extremal graph theory
                                                 <br />
                                                 dominating sets
-                                                <br />
-                                                cographs
                                                 <div
                                                     style={{
                                                         display: "flex",
@@ -343,8 +341,7 @@ const Home = () => {
 
                                         <p style={{ fontFamily: "Satoshi-Variable" }}>
                                             these notes explore the nordhaus-gaddum inequalities for dominating-set
-                                            counts in cographs, using ideas and terminology from work on common
-                                            neighborhoods.
+                                            counts, using ideas and terminology from work on common neighborhoods.
                                         </p>
                                     </Project>
                                 </div>
