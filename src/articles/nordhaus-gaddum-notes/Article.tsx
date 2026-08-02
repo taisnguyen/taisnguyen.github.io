@@ -114,7 +114,7 @@ Then by Lemma 1.3, we can rewrite $\partial(G)$ for a simple graph $G$ on $n$ ve
 $$
 \partial(G) = 2^n - \nu(\bar{G}).
 $$
-Then Conjecture 1.2 can be rewritten for simple graphs $G$ as
+Then Conjecture 1.2 can be rewritten for simple graphs $G$.
 
 \bf{Conjecture 1.3.} For a simple graph $G$ on $n$ vertices, it holds that
 $$
