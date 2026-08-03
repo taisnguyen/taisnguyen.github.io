@@ -90,7 +90,7 @@ For an introduction to the Nordhaus-Gaddum inequalities for dominating-set count
 
 Without further ado, let us start by defining common neighborhoods.
 
-\bf{Definition 1.1.} Let $G$ be a simple graph and $S \subseteq V(G)$ be a subset of its vertices. Then the \it{common neighborhood} $\mathcal{C}_G(S)$ of $S$ in $G$ is defined by $\mathcal{C}_G(S) = \{ v \in V(G) : \forall s \in S, v \sim_G s \} = \bigcap_{s \in S} N_G(s)$, where $u \sim_G v$ means $u$ is adjacent to $v$ in $G$.
+\bf{Definition 1.1.} Let $G$ be a simple graph and $S \subseteq V(G)$ be a subset of its vertices. Then the \it{common neighborhood} $\mathcal{C}_G(S)$ of $S$ in $G$ is defined by $\mathcal{C}_G(S) = \{ v \in V(G) : \forall s \in S, v \sim_G s \} = \bigcap_{s \in S} N_G(s)$, where $u \sim_G v$ means $u$ is adjacent to $v$ in $G$. By convention, we take $\mathcal{C}_G(\emptyset) = V(G)$.
 
 Recall the definition of a dominating set and denote by $\partial(G)$ the number of dominating sets in $G$. As a reminder, we care about the following conjecture.
 
@@ -123,24 +123,33 @@ $$
 This moves us away from counting dominating sets to counting nonempty common neighborhoods.
 
 \slot{section2}
-Let us explore some properties of $\nu$. For graphs $G$ and $H$, denote by $G + H$ the disjoint union of the two graphs. For some subset $S \subseteq V(G)$, denote by $G[S]$ the subgraph of $G$ induced by S. The following lemma is pretty easy to see.
+Let us explore some properties of $\nu$. For graphs $G$ and $H$, denote by $G + H$ the disjoint union of the two graphs. For some subset $S \subseteq V(G)$, denote by $G[S]$ the subgraph of $G$ induced by S. The following proposition is pretty easy to see.
 
-\bf{Lemma 2.1.} Let $G$ and $H$ be simple graphs. Then $\nu(G + H) = \nu(G) + \nu(H)$.
+\bf{Proposition 2.1.} Let $G$ and $H$ be nonempty simple graphs. Then $\nu(G + H) = \nu(G) + \nu(H) - 1$.
 
-\it{Proof.} Fix a subset $\emptyset \neq S \subseteq V(G + H)$. If $S$ is fully contained in $V(G)$, then $\mathcal{C}_{G+H}(S) = \mathcal{C}_G(S)$. And if $S$ is fully contained in $V(H)$, then $\mathcal{C}_{G+H}(S) = \mathcal{C}_H(S)$. If neither is the case, then $\mathcal{C}_{G+H}(S) = \emptyset$, since $(G+H)[V(G)]$ and $(G+H)[V(H)]$ do not have edges between them. Note that the empty subset $S = \emptyset$ contributes zero. The lemma follows. \slot{qed}
+\it{Proof.} Fix a subset $\emptyset \neq S \subseteq V(G + H)$. If $S$ is fully contained in $V(G)$, then $\mathcal{C}_{G+H}(S) = \mathcal{C}_G(S)$. And if $S$ is fully contained in $V(H)$, then $\mathcal{C}_{G+H}(S) = \mathcal{C}_H(S)$. If neither is the case, then $\mathcal{C}_{G+H}(S) = \emptyset$, since $(G+H)[V(G)]$ and $(G+H)[V(H)]$ do not have edges between them. Note that the empty subset is counted once in $\nu(G + H)$, but once in each of $\nu(G)$ and $\nu(H)$, so we subtract one. The proposition follows. \slot{qed}
 
 For graphs $G$ and $H$, denote by $G \vee H$ the join of the two graphs, which is constructed by first performing a disjoint union of $G$ and $H$ and then creating an edge $uv$ for each pair $u \in V(G)$ and $v \in V(H)$.
 
-What can we say about $\nu(G \vee H)$? For a subset $\emptyset \neq S \subseteq V(G)$, it is clear that $\mathcal{C}_{G}(S) \subseteq \mathcal{C}_{G \vee H}(S)$. (And analogously for $H$). Thus, we can at least say that $\nu(G \vee H) \geq \nu(G) + \nu(H)$. But what if $S$ intersects both $V(G)$ and $V(H)$? Write $S = A \cup B$ with $A \subseteq V(G)$ and $B \subseteq V(H)$. Since each vertex in one part connects to all other vertices in the other part, it follows if $\mathcal{C}_{G}(A) \neq \emptyset$ or $\mathcal{C}_{H}(B) \neq \emptyset$, then $\mathcal{C}_{G \vee H}(S) \neq \emptyset$.
+What can we say about $\nu(G \vee H)$? Let us try counting the noncontributing subsets in $G \vee H$. The following lemma will be helpful.
 
-We formalize this in the following lemma.
+\bf{Lemma 2.2.} Let $G$ and $H$ be simple graphs. Fix any $S \subseteq V(G \vee H)$ and write $S = A \cup B$,
+with $A \subseteq V(G)$ and $B \subseteq V(H)$. Then $\mathcal{C}_{G \vee H}(A \cup B) = \mathcal{C}_G(A) \cup \mathcal{C}_{H}(B)$.
 
-\bf{Lemma 2.2.} Let $G$ and $H$ be simple graphs. Then $\nu(G \vee H) = \, ???$
+\it{Proof.} Fix $v \in \mathcal{C}_{G \vee H}(A \cup B)$. Assume wlog. that $v \in V(G)$. By definition, we have that for all $u \in A \cup B$, it follows that $u \sim_{G \vee H}$ v. Since $v \in V(G)$, it further follows that for all $u \in A$, we have $u \sim_G v$. That is, we have $v \in \mathcal{C}_G(A)$, and thus $\mathcal{C}_{G \vee H}(A \cup B) \subseteq \mathcal{C}_G(A) \cup \mathcal{C}_{H}(B)$. The case for $v \in V(H)$ follows analogously. Now fix $v \in \mathcal{C}_G(A) \cup \mathcal{C}_{H}(B)$. Assume wlog. that $v \in \mathcal{C}_{G}(A)$. By definition, we have that for all $u \in A$, it follows that $u \sim_{G}$ v. By construction, it also holds that $u \sim_{G \vee H} v$ for all $u \in A$. Also by construction, we have that for all $w \in V(H)$, it holds that $w \sim_{G \vee H} v$. That is, we have for all $w \in B$, it holds $w \sim_{G \vee H} v$. Thus, it follows that $\mathcal{C}_G(A) \cup \mathcal{C}_{H}(B) \subseteq \mathcal{C}_{G \vee H}(A \cup B)$. The lemma follows. \slot{qed}
+
+\bf{Proposition 2.3.} Let $G$ and $H$ be simple graphs. Then $\nu(G \vee H) = 2^{|G|+|H|} - (2^{|G|} - \nu(G))(2^{|H|} - \nu(H))$.
+
+\it{Proof.} Fix any subset $S \subseteq V(G \vee H)$ and write $S = A \cup B$, with $A = S \cap V(G)$ and $B = S \cap V(H)$. Then by Lemma~\ref{lem:join_decomposition}, $S$ does not contribute if and only if $\mathcal{C}_G(A) = \emptyset$ and $\mathcal{C}_H(B) = \emptyset$. The number of subsets $A \subseteq V(G)$ with $\mathcal{C}_G(A) = \emptyset$ is $2^{|G|} - \nu(G)$. And similarly, the number of subsets with $B \subseteq V(H)$ with $\mathcal{C}_G(B) = \emptyset$ is $2^{|H|} - \nu(H)$. The choices are independent, so the number of noncontributing subsets of $G \vee H$ is $(2^{|G|} - \nu(G))(2^{|H|} - \nu(H))$. There are $2^{|G| + |H|}$ number of subsets of $G \vee H$, so the number of contributing subsets is $2^{|G|+|H|} - (2^{|G|} - \nu(G))(2^{|H|} - \nu(H))$. \slot{qed}
 
 \it{(to be cont.)}
 
 `
     });
 };
+
+// We formalize this in the following proposition.
+
+// For a subset $\emptyset \neq S \subseteq V(G)$, it is clear that $\mathcal{C}_{G}(S) \subseteq \mathcal{C}_{G \vee H}(S)$. (And analogously for $H$). Thus, we can at least say that $\nu(G \vee H) \geq \nu(G) + \nu(H)$. But what if $S$ intersects both $V(G)$ and $V(H)$? Write $S = A \cup B$ with $A \subseteq V(G)$ and $B \subseteq V(H)$. Since each vertex in one part connects to all other vertices in the other part, it follows if $\mathcal{C}_{G}(A) \neq \emptyset$ or $\mathcal{C}_{H}(B) \neq \emptyset$, then $\mathcal{C}_{G \vee H}(S) \neq \emptyset$.
 
 export default Article;

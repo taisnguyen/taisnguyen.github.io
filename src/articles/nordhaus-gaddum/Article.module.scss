@@ -272,26 +272,3 @@
         content: ",";
     }
 }
-
-@media screen and (max-width: 992px) {
-    .topics {
-        flex-direction: column;
-        align-items: flex-start;
-
-        gap: 0.2em;
-        width: 100%;
-    }
-
-    .topicsLabel {
-        margin-bottom: 0.15em;
-        font-weight: 500;
-    }
-
-    .topic {
-        width: 100%;
-
-        &::after {
-            content: none !important;
-        }
-    }
-}
